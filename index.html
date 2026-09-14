@@ -41,17 +41,14 @@
   .sub b{color:var(--ink);font-weight:500}
   .rule{height:5px;background:var(--ink);margin:36px 0 0}
 
-  /* chapter nav chips */
   .chips{display:flex;flex-wrap:wrap;gap:8px;padding:22px 0 18px;border-bottom:2px solid var(--rule)}
   .chip{appearance:none;border:2px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer;font-family:var(--mono);font-size:12.5px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;padding:8px 14px;border-radius:999px;display:inline-flex;align-items:center;gap:8px;line-height:1;text-decoration:none;transition:background .15s,color .15s}
   .chip:hover{background:var(--paper-deep)}
   .chip:focus-visible{outline:3px solid var(--turmeric);outline-offset:2px}
   .chip b{font-weight:600;color:var(--chilli)}
-  .chip:hover b{color:var(--chilli)}
   .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
   .chip[aria-pressed="true"] b{color:var(--turmeric)}
 
-  /* chapters */
   .ch{border-top:5px solid var(--ink);margin-top:44px;padding-top:18px}
   .ch-head{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:32px;align-items:end}
   @media (max-width:860px){.ch-head{grid-template-columns:1fr;gap:12px}}
@@ -59,24 +56,19 @@
   .k b{color:var(--chilli);font-weight:600}
   .ch h2{font-family:var(--display);font-size:clamp(30px,4.2vw,50px);line-height:.98;letter-spacing:-.02em;margin-top:8px;text-wrap:balance}
   .ch h2 em{font-style:normal;color:var(--chilli)}
-  .lede{font-size:15.5px;line-height:1.55;color:var(--ink);max-width:44ch}
+  .lede{font-size:15.5px;line-height:1.55;max-width:44ch}
 
   .mods{display:grid;grid-template-columns:repeat(12,1fr);gap:32px 36px;margin-top:30px}
   .mod{grid-column:span 12;min-width:0}
   .mod.half{grid-column:span 6}
-  .mod.third{grid-column:span 4}
-  .mod.two3{grid-column:span 8}
-  @media (max-width:960px){.mod.third{grid-column:span 6}.mod.two3{grid-column:span 12}}
-  @media (max-width:700px){.mod.half,.mod.third{grid-column:span 12}}
+  @media (max-width:700px){.mod.half{grid-column:span 12}}
   .mod-head{border-top:2px solid var(--rule);padding-top:12px;margin-bottom:14px}
   .mod h3{font-family:var(--display);font-size:22px;line-height:1.05;letter-spacing:-.015em;margin-top:6px;text-wrap:balance}
   .mod h3 em{font-style:normal;color:var(--chilli)}
   .mod p{font-size:14.5px;line-height:1.55;max-width:60ch}
   .mod p + p{margin-top:8px}
   .mod p.note{font-family:var(--mono);font-size:11.5px;color:var(--smoke);letter-spacing:.03em;line-height:1.5;margin-top:12px}
-  .mod p em{font-style:italic}
 
-  /* controls */
   .btn{appearance:none;display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);background:transparent;border:2px solid var(--ink);padding:9px 14px;cursor:pointer;line-height:1;transition:background .15s,color .15s}
   .btn:hover{background:var(--ink);color:var(--paper)}
   .btn:focus-visible{outline:3px solid var(--turmeric);outline-offset:2px}
@@ -92,10 +84,8 @@
   select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--ink) 50%),linear-gradient(135deg,var(--ink) 50%,transparent 50%);background-position:calc(100% - 16px) 55%,calc(100% - 11px) 55%;background-size:5px 5px;background-repeat:no-repeat;padding-right:30px}
   input[type=range]{width:100%;accent-color:var(--chilli)}
   .fields{display:grid;gap:10px}
-  .fields.c2{grid-template-columns:1fr 1fr}
   .fields.c3{grid-template-columns:1fr 1fr 1fr}
-  .fields.c5{grid-template-columns:repeat(5,1fr)}
-  @media (max-width:520px){.fields.c3,.fields.c5{grid-template-columns:1fr 1fr}}
+  @media (max-width:520px){.fields.c3{grid-template-columns:1fr 1fr}}
   .out{font-family:var(--display);font-size:28px;line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
   .out small{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--smoke);display:block;margin-top:6px}
   .win{color:var(--chilli)}
@@ -122,14 +112,6 @@
   .meal .txt{flex:1 1 320px;font-family:var(--display);font-size:19px;line-height:1.2;letter-spacing:-.01em;text-wrap:balance}
   .meal .txt em{font-style:normal;color:var(--chilli)}
 
-  /* label rule */
-  .dv{margin-top:12px}
-  .dvbar{position:relative;height:14px;background:var(--paper-deep);border:2px solid var(--ink);margin:14px 0 6px}
-  .dvbar i{position:absolute;top:-2px;bottom:-2px;width:2px;background:var(--ink)}
-  .dvbar b{position:absolute;top:-2px;bottom:-2px;left:0;background:var(--turmeric);transition:width .15s}
-  .dvbar span{position:absolute;top:16px;font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--smoke);transform:translateX(-50%);white-space:nowrap}
-  .dvread{display:flex;gap:16px;align-items:baseline;flex-wrap:wrap;margin-top:22px}
-
   /* five finger */
   .ff{display:grid;grid-template-columns:230px minmax(0,1fr);gap:28px;align-items:start}
   @media (max-width:760px){.ff{grid-template-columns:1fr}}
@@ -150,26 +132,11 @@
   .verdictline{margin-top:12px;font-family:var(--display);font-size:17px;line-height:1.25;letter-spacing:-.01em}
   .verdictline em{font-style:normal;color:var(--chilli)}
 
-  /* three columns */
-  .three{display:grid;grid-template-columns:repeat(3,1fr);border-top:2px solid var(--ink)}
-  @media (max-width:700px){.three{grid-template-columns:1fr}}
-  .three > div{padding:14px 18px 16px 0;border-right:2px solid var(--rule)}
-  .three > div + div{padding-left:18px}
-  .three > div:last-child{border-right:none;padding-right:0}
-  @media (max-width:700px){.three > div{border-right:none;border-bottom:2px solid var(--rule);padding:14px 0}.three > div + div{padding-left:0}.three > div:last-child{border-bottom:none}}
-  .three h4{font-family:var(--display);font-size:16px;line-height:1.1;margin-top:6px}
-  .three ul{list-style:none;margin-top:8px}
-  .three li{font-size:14px;line-height:1.45;padding-left:14px;position:relative}
-  .three li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;background:var(--ink);border-radius:50%}
-  .three .dec{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--smoke);margin-top:10px}
-  .three .dec b{display:inline-block;height:6px;background:var(--ink);vertical-align:middle;margin-right:6px}
-
-  /* cost desk */
+  /* cost */
   .ab{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px}
   .abx{border:2px solid var(--rule);padding:12px;position:relative;transition:border-color .15s}
   .abx.best{border-color:var(--ink)}
   .abx .tag{position:absolute;top:-9px;right:10px}
-  .abx .nm{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px;border:none;padding:0;font-weight:600}
   .abx input.name{border:none;border-bottom:2px solid var(--rule);padding:2px 0 4px;font-family:var(--sans);font-size:13.5px;font-weight:500;margin-bottom:8px}
   .abx .out{font-size:24px;margin-top:12px}
   .cur{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
@@ -177,48 +144,8 @@
   .rng{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12px;font-variant-numeric:tabular-nums}
   .rng output{min-width:4ch;text-align:right;font-weight:600}
 
-  /* storage list */
-  .where{border-top:2px solid var(--rule);margin-top:6px}
-  .where .r{display:grid;grid-template-columns:1fr auto;gap:12px;padding:9px 0;border-bottom:1px solid var(--rule-soft);align-items:center}
-  .where .r .n{font-size:14px;font-weight:500}
-  .where .r .n small{display:block;font-family:var(--mono);font-size:10.5px;color:var(--smoke);letter-spacing:.04em;margin-top:2px;line-height:1.4;max-width:46ch}
-  .where .r .p{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;border:2px solid var(--ink);padding:5px 9px;white-space:nowrap}
-  .where .r .p.cold{background:var(--ink);color:var(--paper)}
-
-  /* checklist */
-  .ck{list-style:none;border-top:2px solid var(--rule)}
-  .ck li{border-bottom:1px solid var(--rule-soft)}
-  .ck label{display:grid;grid-template-columns:20px 1fr;gap:12px;align-items:start;padding:9px 0;cursor:pointer;font-size:14px;line-height:1.45}
-  .ck input{appearance:none;width:18px;height:18px;border:2px solid var(--ink);margin-top:2px;cursor:pointer;flex:none;display:inline-block;position:relative}
-  .ck input:checked{background:var(--ink)}
-  .ck input:checked::after{content:"";position:absolute;left:4px;top:1px;width:5px;height:9px;border:solid var(--paper);border-width:0 2.5px 2.5px 0;transform:rotate(45deg)}
-  .ck input:focus-visible{outline:3px solid var(--turmeric);outline-offset:2px}
-  .ck input:checked + span{color:var(--smoke);text-decoration:line-through;text-decoration-color:var(--rule)}
-  .ck span em{font-style:italic;color:var(--smoke)}
-  .ckft{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:10px;font-family:var(--mono);font-size:11px;color:var(--smoke);letter-spacing:.06em}
-  .ckft button{appearance:none;background:none;border:none;font:inherit;color:var(--smoke);text-decoration:underline;cursor:pointer;letter-spacing:inherit}
-  .ckft button:focus-visible{outline:3px solid var(--turmeric)}
-
-  /* batch */
-  .batch{display:grid;grid-template-columns:1fr 24px 1.4fr;gap:14px;align-items:stretch}
-  @media (max-width:600px){.batch{grid-template-columns:1fr}.batch .arrow{display:none}}
-  .batch .arrow{display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:18px;color:var(--smoke)}
-  .bt,.ml{display:block;width:100%;text-align:left;appearance:none;background:transparent;border:2px solid var(--rule);color:var(--ink);padding:10px 12px;cursor:pointer;margin-top:-2px;transition:background .12s,border-color .12s,opacity .12s;font-family:var(--sans)}
-  .bt:first-child,.ml:first-child{margin-top:0}
-  .bt{font-family:var(--display);font-size:15px;line-height:1.15}
-  .bt:hover,.ml:hover{background:var(--paper-deep)}
-  .bt:focus-visible,.ml:focus-visible{outline:3px solid var(--turmeric);outline-offset:1px;position:relative;z-index:1}
-  .bt.on{background:var(--ink);color:var(--paper);border-color:var(--ink);position:relative;z-index:1}
-  .ml .d{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--smoke)}
-  .ml .t{font-size:14px;line-height:1.35;margin-top:3px}
-  .ml .u{display:flex;gap:5px;flex-wrap:wrap;margin-top:6px}
-  .ml .u span{font-family:var(--mono);font-size:10px;letter-spacing:.06em;border:1.5px solid var(--rule);padding:2px 6px;border-radius:999px;color:var(--smoke)}
-  .ml.lit{border-color:var(--ink);position:relative;z-index:1}
-  .ml.lit .u span.hit{border-color:var(--turmeric);background:var(--turmeric);color:var(--ink)}
-  .batch.sel .ml:not(.lit){opacity:.38}
-
   /* leftover clock */
-  .clock{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border-top:2px solid var(--ink);margin-top:14px}
+  .clock{display:grid;grid-template-columns:1fr 1fr 1fr;border-top:2px solid var(--ink);margin-top:14px}
   @media (max-width:700px){.clock{grid-template-columns:1fr}}
   .clock > div{padding:14px 18px 14px 0;border-right:2px solid var(--rule)}
   .clock > div + div{padding-left:18px}
@@ -226,53 +153,25 @@
   @media (max-width:700px){.clock > div{border-right:none;border-bottom:2px solid var(--rule);padding:12px 0}.clock > div + div{padding-left:0}.clock > div:last-child{border-bottom:none}}
   .clock .when{font-family:var(--display);font-size:30px;line-height:1;letter-spacing:-.02em;margin-top:6px;font-variant-numeric:tabular-nums}
   .clock .when small{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--smoke);margin-top:6px;font-weight:400}
-  .clock .why{font-size:13.5px;line-height:1.5;margin-top:10px;color:var(--ink)}
+  .clock .why{font-size:13.5px;line-height:1.5;margin-top:10px}
   .clock .why b{font-weight:600}
   .temps{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
   .temps span{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;border:2px solid var(--ink);padding:6px 10px}
   .temps span b{font-weight:600}
 
-  /* kit */
-  .kit{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-  @media (max-width:700px){.kit{grid-template-columns:1fr}}
-  .kit .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
-  .kit .tags span{font-family:var(--mono);font-size:12px;letter-spacing:.03em;border:2px solid var(--ink);padding:5px 9px}
-  .kit .tags.opt span{border-style:dashed}
-  .kit .tags.no span{border-color:var(--rule);color:var(--smoke);text-decoration:line-through;text-decoration-color:var(--chilli);text-decoration-thickness:2px}
-
-  /* doorway */
-  .door{display:grid;gap:10px;margin-top:6px}
-  .seq{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:center}
-  .seq .who{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--smoke);width:74px}
-  .seq .steps{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-  .seq .st{font-family:var(--display);font-size:14px;line-height:1.1;border:2px solid var(--ink);padding:9px 12px;background:var(--paper)}
-  .seq .st.cue{background:var(--turmeric)}
-  .seq .ar{font-family:var(--mono);color:var(--smoke)}
-  .seq.old .st:not(.cue){border-color:var(--rule);color:var(--smoke)}
-  .seq.old .st.end{border-color:var(--chilli);color:var(--chilli)}
-  .seq.new .st.end{background:var(--ink);color:var(--paper)}
-  .ifthen{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
-  @media (max-width:700px){.ifthen{grid-template-columns:1fr}}
-  .ifthen div{border:2px solid var(--rule);padding:12px 14px}
-  .ifthen .k{display:block}
-  .ifthen b{display:block;font-family:var(--display);font-size:15px;line-height:1.15;margin-top:4px}
-  .ifthen span{display:block;font-size:13.5px;line-height:1.45;margin-top:8px}
-
-  /* fallback */
-  .fb{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  /* no-cook meals */
+  .fb{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  @media (max-width:960px){.fb{grid-template-columns:1fr 1fr}}
   @media (max-width:600px){.fb{grid-template-columns:1fr}}
-  .fbc{border:2px solid var(--ink);padding:16px 18px}
+  .fbc{border:2px solid var(--ink);padding:16px 18px;display:flex;flex-direction:column}
   .fbc h4{font-family:var(--display);font-size:20px;line-height:1.05;letter-spacing:-.015em;margin-top:6px}
   .fbc ul{list-style:none;margin-top:10px;display:flex;flex-wrap:wrap;gap:6px}
   .fbc li{font-family:var(--mono);font-size:12px;letter-spacing:.03em;border:1.5px solid var(--ink);padding:4px 8px;border-radius:999px}
-  .fbc p{margin-top:10px;font-size:13.5px}
-  .learn{display:grid;gap:8px;margin-top:6px}
-  .learn .row{display:grid;grid-template-columns:28px 1fr;gap:10px;align-items:center}
-  .learn .row i{font-family:var(--mono);font-size:12px;color:var(--smoke);font-style:normal;text-align:right}
-  .learn input{border:none;border-bottom:2px solid var(--rule);padding:8px 2px;font-family:var(--sans);font-size:14.5px}
-  .learn input:focus-visible{outline:none;border-bottom-color:var(--ink)}
+  .fbc li.c{border-color:var(--chilli);color:var(--chilli)}
+  .fbc p{margin-top:10px;font-size:13.5px;line-height:1.5}
+  .fbc .k{display:flex;justify-content:space-between;gap:8px}
+  .fbc .k span{color:var(--ink)}
 
-  /* verdict */
   .verdict{margin-top:44px;background:var(--ink);color:var(--paper);padding:34px 40px;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:36px;align-items:center}
   @media (max-width:760px){.verdict{grid-template-columns:1fr;padding:26px 22px}}
   .verdict .k{opacity:.7;color:var(--paper)}
@@ -301,8 +200,8 @@
     <div class="brand-tag">The grad student’s cheatsheet</div>
   </div>
 
-  <h1>Eat well. Spend less. <em>Cook less often.</em></h1>
-  <p class="sub">The six chapters of <b>The Grad Student’s Guide to Eating Healthy Abroad</b>, turned into things you can operate. Built for the first year of a degree, a small kitchen and a smaller budget. Nothing here needs an air fryer.</p>
+  <h1>Feeding yourself <em>abroad</em></h1>
+  <p class="sub">Companion to <b>The Grad Student’s Guide to Eating Healthy Abroad</b>. Four tools from the video, and six meals for the days you cannot cook.</p>
 
   <div class="rule"></div>
 
@@ -310,26 +209,24 @@
     <a class="chip" href="#c1"><b>1</b> Balanced meal</a>
     <a class="chip" href="#c2"><b>2</b> Packaged food</a>
     <a class="chip" href="#c3"><b>3</b> Cost</a>
-    <a class="chip" href="#c4"><b>4</b> Cook less often</a>
-    <a class="chip" href="#c5"><b>5</b> Routine</a>
-    <a class="chip" href="#c6"><b>6</b> Exhausted</a>
+    <a class="chip" href="#c4"><b>4</b> Leftovers</a>
+    <a class="chip" href="#c6"><b>6</b> No-cook meals</a>
   </nav>
 
-  <!-- ============ 1 NUTRITION ============ -->
+  <!-- 1 -->
   <section class="ch" id="c1">
     <div class="ch-head">
       <div>
         <div class="k">Chapter 1 <b>·</b> 00:40</div>
         <h2>What makes a <em>balanced meal?</em></h2>
       </div>
-      <p class="lede">A substantial protein, some vegetables or fruit, enough starch to fuel you, and something that makes you want to eat it again tomorrow.</p>
+      <p class="lede">A substantial protein, some vegetables or fruit, enough rice, bread or potatoes to fuel you, and flavour you will want again tomorrow.</p>
     </div>
-
     <div class="mods">
       <div class="mod">
         <div class="mod-head">
           <div class="k">Meal builder</div>
-          <h3>One from each column. <em>That’s dinner.</em></h3>
+          <h3>Pick one from <em>each column</em></h3>
         </div>
         <div class="builder">
           <div class="plate" aria-hidden="true">
@@ -352,62 +249,29 @@
               <div class="txt" id="mealtxt"></div>
               <button class="btn" type="button" id="shuffle">Surprise me</button>
             </div>
-            <p class="note">Rough composition, not compartments. A rajma chawal does not need to be served in three piles. Legumes count as protein and carbohydrate at once. The fourth row is breakfast. Plain yoghurt can carry much less protein than Greek yoghurt or skyr, so compare the labels.</p>
+            <p class="note">The plate shows proportions, not compartments. Rajma chawal is one dish and still counts. Legumes are protein and carbohydrate at once. The fourth row is breakfast. Plain yoghurt can carry far less protein than Greek yoghurt or skyr, so compare the two labels. A thin spoonful of sambar is not the protein serving a bowl of thick dal is.</p>
           </div>
         </div>
-      </div>
-
-      <div class="mod half">
-        <div class="mod-head">
-          <div class="k">Reading a label</div>
-          <h3>Compare like with like, <em>in this order</em></h3>
-        </div>
-        <p>Same product type, same quantity. Two yoghurts, two breads. Look at <b>protein</b> and <b>fibre</b> first, then <b>added sugar</b>, <b>sodium</b> and <b>saturated fat</b>. Then check the calories in the portion you will actually eat, not the one printed on the pack.</p>
-        <div class="dv">
-          <label class="f" for="dvr">Daily Value on a US label, per serving</label>
-          <div class="rng"><input type="range" id="dvr" min="0" max="50" value="12" aria-describedby="dvread"><output for="dvr" id="dvo">12%</output></div>
-          <div class="dvbar"><b id="dvfill" style="width:24%"></b><i style="left:10%"></i><i style="left:40%"></i><span style="left:10%">5% low</span><span style="left:40%">20% high</span></div>
-          <div class="dvread" id="dvread">
-            <div class="out" id="dvword">In between<small id="dvsub">5% or less is low, 20% or more is high</small></div>
-            <div class="seg" role="group" aria-label="Servings eaten"><button class="btn sm on" type="button" data-x="1">1 serving</button><button class="btn sm" type="button" data-x="2">2 servings</button></div>
-          </div>
-        </div>
-        <p class="note">The 5% / 20% rule is for US labels. Elsewhere, use the per-100 g column to compare products. Label rules are not identical everywhere.</p>
-      </div>
-
-      <div class="mod half">
-        <div class="mod-head">
-          <div class="k">Protein per calorie</div>
-          <h3>Twenty grams in 200 calories <em>beats ten</em></h3>
-        </div>
-        <p>If you are buying something specifically for protein, compare how much protein you get for the calories and the price. A food with 20 g of protein in 200 kcal gives you twice as much as one with 10 g in the same calories.</p>
-        <div class="fields c2" style="margin-top:12px">
-          <div><label class="f" for="ppP">Protein on the label, g</label><input type="number" id="ppP" value="12" min="0" step="0.5"></div>
-          <div><label class="f" for="ppK">Calories in that serving</label><input type="number" id="ppK" value="180" min="1" step="5"></div>
-        </div>
-        <div class="out" style="margin-top:14px"><span id="ppOut">13.3 g</span><small>protein per 200 kcal</small></div>
-        <p class="note">Nuts are nutritious, with good fats, fibre and minerals, but they are not your cheapest main protein. A watery spoonful of sambar is not the same as a thick bowl of dal or a sundal.</p>
       </div>
     </div>
   </section>
 
-  <!-- ============ 2 PACKAGED ============ -->
+  <!-- 2 -->
   <section class="ch" id="c2">
     <div class="ch-head">
       <div>
         <div class="k">Chapter 2 <b>·</b> 02:30</div>
         <h2>Which shortcuts are <em>worth buying?</em></h2>
       </div>
-      <p class="lede">When you pick up a packet, ask how much of the composition of your meal has already been decided for you. Then check what it is made of.</p>
+      <p class="lede">Frozen and canned vegetables count. Freezing stops microbes multiplying while the food stays frozen, and protein and fibre largely remain. The test below is for fully packaged food.</p>
     </div>
-
     <div class="mods">
-      <div class="mod two3">
+      <div class="mod">
         <div class="mod-head">
           <div class="k">The five finger test</div>
-          <h3>Take 200 calories of it. <em>Count the fingers.</em></h3>
+          <h3>Score 200 calories of <em>any packaged food</em></h3>
         </div>
-        <p>For fully packaged food, type in the numbers from the label for one serving. The test scales them to 200 kcal and awards one finger for each line the food passes.</p>
+        <p>Type in the numbers from the label for one serving. The test scales them to 200 kcal and lights one finger for each line the food passes.</p>
         <div class="btns" id="presets" style="margin:12px 0"></div>
         <div class="fields c3">
           <div><label class="f" for="fK">Calories per serving</label><input type="number" id="fK" min="1" step="5"></div>
@@ -433,165 +297,67 @@
           <div>
             <div class="crit" id="crit"></div>
             <div class="verdictline" id="ffverdict"></div>
-            <p class="note">Under 2 is deadline, flu or heartbreak food. 2 or 3 is workable if you add an egg, tofu or frozen veg and use less of a salty seasoning. 4 or 5 is a meal. Preset values are illustrative labels, not any specific brand. Rinsing canned beans drops the sodium a lot.</p>
+            <p class="note">Anything under 2 out of 5 is an occasional indulgence, not a regular meal. Preset values are typical label numbers, not a specific brand. Rinsing canned beans removes a good part of the sodium.</p>
           </div>
         </div>
-      </div>
-
-      <div class="mod third">
-        <div class="mod-head">
-          <div class="k">Frozen and canned</div>
-          <h3>Freezing is not <em>sterilising</em></h3>
-        </div>
-        <p>Freezing stops microbes multiplying while the food stays frozen and slows the reactions that spoil it. Protein and fibre largely remain, and many vitamins hold up well.</p>
-        <p>Canning uses heat and a sealed container, so some vitamins are lost, but the beans remain nutritious.</p>
-        <p>If you regularly throw away fresh spinach because you never cooked it in time, frozen spinach is not a compromise. It is the better product for you.</p>
-      </div>
-
-      <div class="mod">
-        <div class="mod-head">
-          <div class="k">How much has been decided?</div>
-          <h3>Three kinds of shortcut, and <em>none is a health grade</em></h3>
-        </div>
-        <div class="three">
-          <div>
-            <div class="k">Complete meals</div>
-            <h4>Most decisions made</h4>
-            <ul><li>Frozen pizza</li><li>Ready-to-eat curry</li><li>Instant noodles</li><li>Meal kits and microwave dinners</li></ul>
-            <div class="dec"><b style="width:90%"></b>Composition decided</div>
-          </div>
-          <div>
-            <div class="k">Cooked components</div>
-            <h4>Cooking done, assembly yours</h4>
-            <ul><li>Microwave rice, cooked dal</li><li>Rotisserie chicken</li><li>Frozen chapatis</li><li>Hummus, ready-to-eat tofu</li></ul>
-            <div class="dec"><b style="width:55%"></b>Composition decided</div>
-          </div>
-          <div>
-            <div class="k">Convenience ingredients</div>
-            <h4>Chopping done, everything else yours</h4>
-            <ul><li>Canned chickpeas, canned tomatoes</li><li>Frozen spinach, frozen mixed veg</li><li>Oats</li><li>Pre-cut salad vegetables</li></ul>
-            <div class="dec"><b style="width:20%"></b>Composition decided</div>
-          </div>
-        </div>
-        <p class="note">These categories tell you how much preparation has been done. They do not tell you how healthy the food is. A balanced ready meal can beat something you assembled yourself. Keep a few complete meals for bad weeks, and improve them with an egg and frozen vegetables.</p>
       </div>
     </div>
   </section>
 
-  <!-- ============ 3 COST ============ -->
+  <!-- 3 -->
   <section class="ch" id="c3">
     <div class="ch-head">
       <div>
         <div class="k">Chapter 3 <b>·</b> 04:26</div>
         <h2>How to <em>spend less</em> on food</h2>
       </div>
-      <p class="lede">Compare unit prices, count what you will actually eat before it spoils, and pay a little for convenience when it saves you from ordering in.</p>
+      <p class="lede">Compare prices per kilogram or per 100 g, count what you will eat before it spoils, and pay a little for convenience when it stops you ordering in.</p>
     </div>
-
     <div class="mods">
       <div class="mod">
         <div class="cur">
           <label class="f" for="curSel" style="margin:0">Currency</label>
           <select id="curSel"><option value="$">$ dollar</option><option value="£">£ pound</option><option value="€">€ euro</option><option value="C$">C$ Canada</option><option value="A$">A$ Australia</option><option value="₹">₹ rupee</option><option value="">units</option></select>
-          <span class="k">All figures below are your own inputs, not local prices</span>
+          <span class="k">Enter your own shelf prices</span>
         </div>
       </div>
-
-      <div class="mod third">
-        <div class="mod-head">
-          <div class="k">Shelf price</div>
-          <h3>The big packet is not <em>automatically cheaper</em></h3>
-        </div>
-        <div class="ab" id="unitAB"></div>
-        <p class="note">Compare per kilogram, litre or 100 g. Supermarket own brands are worth trying for staples.</p>
-      </div>
-
-      <div class="mod third">
+      <div class="mod half">
         <div class="mod-head">
           <div class="k">Waste-adjusted cost</div>
-          <h3>Half-price salad you <em>throw away</em></h3>
+          <h3>Cost per portion <em>you eat</em></h3>
         </div>
         <div class="ab" id="wasteAB"></div>
-        <p class="note">A giant bag at half price saves nothing if most of it goes in the bin. Effective cost is price divided by the portions you actually eat.</p>
+        <p class="note">Price divided by the portions that reach your plate. A half-price bag that half rots costs the same per eaten portion as a full-price bag you finish.</p>
       </div>
-
-      <div class="mod third">
+      <div class="mod half">
         <div class="mod-head">
           <div class="k">Protein value</div>
           <h3>Price per <em>20 g of protein</em></h3>
         </div>
         <div class="ab" id="protAB"></div>
-        <p class="note">Package price ÷ total grams of protein in the package × 20. Use drained weight for cans. This measures protein value only, not overall quality. Twenty grams is a comparison unit, not a meal target.</p>
-      </div>
-
-      <div class="mod half">
-        <div class="mod-head">
-          <div class="k">Storage before cooking</div>
-          <h3>Where does it <em>live?</em></h3>
-        </div>
-        <div class="seg" role="group" aria-label="Where you are"><button class="btn sm on" type="button" data-loc="us">I’m in the US</button><button class="btn sm" type="button" data-loc="row">Somewhere else</button></div>
-        <div class="where" id="where"></div>
-        <p class="note">Eat the delicate fresh vegetables first. Carrots and cabbage wait patiently. Restaurant dal will likely have about three times the calories of the one you make at home, so paying a little for canned beans that stop you ordering in can reduce what you spend overall.</p>
-      </div>
-
-      <div class="mod half">
-        <div class="mod-head">
-          <div class="k">First shopping basket</div>
-          <h3>Six lines, <em>not a mandate</em></h3>
-        </div>
-        <ul class="ck" id="basket"></ul>
-        <div class="ckft"><span id="basketCount"></span><button type="button" id="basketReset">Clear</button></div>
-        <p class="note">Choose what fits local prices and your cooking facilities. You do not need imported Indian versions of everything: local dal and vegetables take Indian spices perfectly well. Check your destination’s current food-import and declaration rules before packing anything edible.</p>
+        <p class="note">Package price ÷ grams of protein in the package × 20. Use drained weight for cans. This measures protein value only. Twenty grams is a comparison unit, not a meal target.</p>
       </div>
     </div>
   </section>
 
-  <!-- ============ 4 CONVENIENCE ============ -->
+  <!-- 4 -->
   <section class="ch" id="c4">
     <div class="ch-head">
       <div>
         <div class="k">Chapter 4 <b>·</b> 05:30</div>
-        <h2>How to <em>cook less often</em></h2>
+        <h2>How long can <em>leftovers wait?</em></h2>
       </div>
-      <p class="lede">Cook once, eat three times. Use the freezer. And do the exact opposite of the uncle who won’t eat food from the fridge.</p>
+      <p class="lede">Cook extra, cool it fast in shallow containers, and freeze what you will not eat in the next day or two.</p>
     </div>
-
     <div class="mods">
-      <div class="mod half">
-        <div class="mod-head">
-          <div class="k">Batch cooking</div>
-          <h3>Same batch, <em>different meals</em></h3>
-        </div>
-        <p>When you are already cooking, make extra. Tap a batch to see where it goes.</p>
-        <div class="batch" id="batch" style="margin-top:12px">
-          <div id="batchL"></div>
-          <div class="arrow">→</div>
-          <div id="batchR"></div>
-        </div>
-        <p class="note">Freeze in single-meal portions. Label each container with contents and date. Flatten freezer bags to save space, and freeze bread in slices so you only take out what you need.</p>
-      </div>
-
-      <div class="mod half">
-        <div class="mod-head">
-          <div class="k">Equipment</div>
-          <h3>Check what the flat provides <em>before buying</em></h3>
-        </div>
-        <div class="kit">
-          <div><div class="k">Enough</div><div class="tags"><span>Microwave</span><span>One pan</span><span>A knife</span><span>Containers</span><span>Chopping board</span></div></div>
-          <div><div class="k">If you’ll use it</div><div class="tags opt"><span>Rice cooker</span><span>Pressure cooker</span><span>Food thermometer</span></div></div>
-          <div><div class="k">Not needed</div><div class="tags no"><span>Air fryer</span><span>Stand mixer</span><span>Anything with a subscription</span></div></div>
-        </div>
-        <p class="note">Some accommodation forbids certain appliances. Ask first. A food thermometer is genuinely useful while you learn to cook poultry.</p>
-      </div>
-
       <div class="mod">
         <div class="mod-head">
           <div class="k">Leftover clock</div>
-          <h3>Cooked at what time? <em>Here is your deadline.</em></h3>
+          <h3>When to refrigerate, <em>when to eat</em></h3>
         </div>
         <div class="fields c3" style="max-width:640px">
           <div><label class="f" for="lcT">Cooked at</label><input type="time" id="lcT"></div>
-          <div><label class="f">What is it</label><div class="seg" role="group" aria-label="Food type"><button class="btn sm on" type="button" data-food="other">Dal, curry, meat</button><button class="btn sm" type="button" data-food="rice">Rice</button></div></div>
+          <div><label class="f">Food</label><div class="seg" role="group" aria-label="Food type"><button class="btn sm on" type="button" data-food="other">Dal, curry, meat</button><button class="btn sm" type="button" data-food="rice">Rice</button></div></div>
           <div><label class="f">Room</label><div class="seg" role="group" aria-label="Room temperature"><button class="btn sm on" type="button" data-hot="0">Normal</button><button class="btn sm" type="button" data-hot="1">Above 32°C / 90°F</button></div></div>
         </div>
         <div class="clock" id="clock"></div>
@@ -601,101 +367,70 @@
           <span>Reheat to <b>74°C / 165°F</b> throughout, stir, check the centre</span>
           <span>Thaw in the fridge, or microwave and heat <b>immediately</b></span>
         </div>
-        <p class="note">Cool food in shallow containers. Never leave a big pot cooling overnight. The 1–2 day fridge routine is deliberately conservative for an international audience: USDA allows 3–4 days for properly handled leftovers and the UK commonly says 48 hours. Rice follows the UK Food Standards Agency: cool within an hour, fridge for 24 hours at most, reheat only once. Freezing and reheating will not make badly stored food safe again. Keep raw meat away from ready-to-eat food. For dried kidney beans, soak and boil properly; canned kidney beans are already cooked and simpler.</p>
+        <p class="note">The 1–2 day fridge routine is deliberately conservative for an international audience. USDA allows 3–4 days for properly handled leftovers; UK guidance says 48 hours. The rice rule follows the UK Food Standards Agency: cool within an hour, 24 hours in the fridge at most, reheat once. Freezing and reheating do not make badly stored food safe.</p>
       </div>
     </div>
   </section>
 
-  <!-- ============ 5 HABITS ============ -->
-  <section class="ch" id="c5">
-    <div class="ch-head">
-      <div>
-        <div class="k">Chapter 5 <b>·</b> 07:11</div>
-        <h2>How to make this <em>a routine</em></h2>
-      </div>
-      <p class="lede">Knowing all this does not stop you opening the delivery app. You need a routine that survives being tired.</p>
-    </div>
-
-    <div class="mods">
-      <div class="mod">
-        <div class="mod-head">
-          <div class="k">The doorway</div>
-          <h3>Same cue, <em>different routine</em></h3>
-        </div>
-        <p>Repeat an action in a familiar situation and the situation starts triggering the action with less thought, the way your fingers type your phone passcode. The cue is the same in both rows. Only the next two steps change.</p>
-        <div class="door" style="margin-top:14px">
-          <div class="seq old"><div class="who">Old loop</div><div class="steps"><span class="st cue">Bag down</span><span class="ar">→</span><span class="st">Sofa</span><span class="ar">→</span><span class="st end">Delivery app</span></div></div>
-          <div class="seq new"><div class="who">New loop</div><div class="steps"><span class="st cue">Bag down</span><span class="ar">→</span><span class="st">Fridge</span><span class="ar">→</span><span class="st end">Microwave</span></div></div>
-        </div>
-        <div class="ifthen">
-          <div><span class="k">When I</span><b>walk in the door</b><span>I start heating a meal I chose in advance, before I sit down.</span></div>
-          <div><span class="k">When I</span><b>finish dinner</b><span>I pack tomorrow’s lunch while the pan is still out.</span></div>
-          <div><span class="k">When I</span><b>take out the last frozen meal</b><span>I add its ingredients to the shopping list.</span></div>
-        </div>
-        <p class="note">It helps if the result is enjoyable straight away: good food, little washing up, money saved. Your health at fifty is a distant abstraction when you are twenty-two and hungry. Start with one routine, perhaps breakfast, and give it time. There is no universal 21-day deadline.</p>
-      </div>
-
-      <div class="mod half">
-        <div class="mod-head">
-          <div class="k">Make the good routine the easy one</div>
-          <h3>Small moves, <em>set up once</em></h3>
-        </div>
-        <ul class="ck" id="easy"></ul>
-        <div class="ckft"><span id="easyCount"></span><button type="button" id="easyReset">Clear</button></div>
-      </div>
-
-      <div class="mod half">
-        <div class="mod-head">
-          <div class="k">Ten minutes of weekly planning</div>
-          <h3>Sunday, <em>before the shop</em></h3>
-        </div>
-        <ul class="ck" id="week"></ul>
-        <div class="ckft"><span id="weekCount"></span><button type="button" id="weekReset">Clear</button></div>
-        <p class="note">Anything bland becomes food you want to eat with Indian spices, lime or lemon, chutney or pickle. That discovery, plus cricket and a gym, undid the ten kilos of pizza and burritos from my own first year.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 6 FALLBACK ============ -->
+  <!-- 6 -->
   <section class="ch" id="c6">
     <div class="ch-head">
       <div>
         <div class="k">Chapter 6 <b>·</b> 08:59</div>
         <h2>What to eat when you are <em>exhausted</em></h2>
       </div>
-      <p class="lede">Two meals that need no cooking, and one list to fill in before you leave India.</p>
+      <p class="lede">Six meals that need a microwave at most. Each one has a protein, and each one gets its flavour from a condiment you already own.</p>
     </div>
-
     <div class="mods">
-      <div class="mod half">
-        <div class="mod-head">
-          <div class="k">Fallback meals</div>
-          <h3>No energy, <em>no cooker</em></h3>
-        </div>
+      <div class="mod">
         <div class="fb">
-          <div class="fbc"><div class="k">Breakfast or dinner</div><h4>Yoghurt bowl</h4><ul><li>Plain Greek yoghurt</li><li>Oats</li><li>Banana</li><li>Cinnamon</li></ul><p>Stir and eat. A small handful of nuts if you have them.</p></div>
-          <div class="fbc"><div class="k">Lunch or dinner</div><h4>Hummus plate</h4><ul><li>Wholegrain bread</li><li>Hummus</li><li>Ready-to-eat tofu</li><li>Carrot or cucumber</li></ul><p>Follow the packet’s storage instructions for the tofu and hummus.</p></div>
+          <div class="fbc">
+            <div class="k">Breakfast <span>Soak 10 min</span></div>
+            <h4>Dahi poha</h4>
+            <ul><li>Thick curd or Greek yoghurt</li><li>Poha</li><li>Roasted peanuts</li><li class="c">Green chilli, salt, lime</li></ul>
+            <p>Stir the poha into the curd and leave it until soft. For a sweet version, use banana and jaggery instead of chilli and salt. Oats work if the Indian shop is far.</p>
+          </div>
+          <div class="fbc">
+            <div class="k">Lunch <span>Microwave 2 min</span></div>
+            <h4>Curd rice from a pouch</h4>
+            <ul><li>Microwave rice</li><li>Curd</li><li>Roasted chana</li><li class="c">Pickle</li></ul>
+            <p>Heat the rice as the packet says, let it cool a little, stir in the curd and salt. Pickle supplies the flavour. Roasted chana or a handful of pomegranate supplies what the rice lacks.</p>
+          </div>
+          <div class="fbc">
+            <div class="k">Any meal <span>No heat</span></div>
+            <h4>Chana chaat</h4>
+            <ul><li>Canned chickpeas, rinsed</li><li>Onion, tomato, cucumber</li><li class="c">Chaat masala</li><li class="c">Green or tamarind chutney</li></ul>
+            <p>Half a can gives about 7 g of protein and 6 g of fibre. Rinsing removes much of the sodium. Lime and chutney do the rest.</p>
+          </div>
+          <div class="fbc">
+            <div class="k">Dinner <span>No heat</span></div>
+            <h4>Hummus plate, achar edition</h4>
+            <ul><li>Wholegrain bread or frozen chapati</li><li>Hummus</li><li>Ready-to-eat tofu or paneer</li><li class="c">Pickle oil or green chutney</li></ul>
+            <p>Hummus is chickpeas, so a spoon of pickle oil or green chutney stirred in works. Cucumber and onion with chaat masala on the side. Follow the packet’s storage instructions for the tofu.</p>
+          </div>
+          <div class="fbc">
+            <div class="k">Dinner <span>No heat</span></div>
+            <h4>Tinned fish on toast</h4>
+            <ul><li>Tinned sardines or mackerel</li><li>Wholegrain toast</li><li>Raw onion</li><li class="c">Green chilli, lime, coriander</li></ul>
+            <p>Usually the cheapest fish in the supermarket, and small fish score high on the Masala Body chart. Mash with onion, chilli and lime and it is close to a sardine masala without a stove.</p>
+          </div>
+          <div class="fbc">
+            <div class="k">Breakfast <span>Microwave 30 s</span></div>
+            <h4>Peanut butter chapati roll</h4>
+            <ul><li>Frozen chapati</li><li>Peanut butter</li><li>Banana</li><li class="c">Cinnamon or jaggery</li></ul>
+            <p>Warm the chapati, spread, roll. Peanut butter brings the protein and fat, the banana the carbohydrate. Eat it on the way to the 8 am class.</p>
+          </div>
         </div>
-        <p class="note">If money is tight, check what food support your university offers and whether you are eligible. You can still go out for pizza with your friends. What you eat regularly matters far more than any one meal.</p>
-      </div>
-
-      <div class="mod half">
-        <div class="mod-head">
-          <div class="k">Before you leave India</div>
-          <h3>Five meals to <em>learn from whoever feeds you</em></h3>
-        </div>
-        <p>Ask for the whole job: shopping, cooking, cleaning up and storing the leftovers. Write the meals here. This list stays in your browser.</p>
-        <div class="learn" id="learn"></div>
-        <p class="note">I did this when I left India. Those notes became Masala Lab two decades later.</p>
+        <p class="note">If money is tight, check what food support your university offers and whether you are eligible. Pizza with friends is still allowed. What you eat regularly matters far more than any one meal.</p>
       </div>
     </div>
   </section>
 
   <div class="verdict">
     <div>
-      <div class="k">Amidst the scaremongering and the supplement optimisers</div>
-      <div class="v">Only four things every expert <em>agrees on</em>.</div>
-      <p>Learning to cook, and finding a stress-free way to do it regularly, is what makes number four possible for the rest of your life.</p>
+      <div class="k">From the video’s close</div>
+      <div class="v">Four things every expert <em>agrees on</em></div>
+      <p>Learning to cook, and finding a stress-free way to do it regularly, is what makes the fourth one possible for the rest of your life.</p>
     </div>
     <ol>
       <li><b>Enough sleep</b></li>
@@ -709,18 +444,14 @@
     <div class="k">Sources</div>
     <div class="src">
       <div>Plate proportions: <a href="https://www.canada.ca/en/health-canada/services/food-guide/eating-support/cooking/make-healthy-meals-plate.html">Health Canada food guide plate</a></div>
-      <div>Labels, 5% / 20% rule: <a href="https://www.fda.gov/food/nutrition-facts-label/how-understand-and-use-nutrition-facts-label">FDA Nutrition Facts label</a></div>
       <div>Freezing: <a href="https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/freezing-and-food-safety">USDA freezing and food safety</a></div>
       <div>Leftovers, 165°F: <a href="https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/leftovers-and-food-safety">USDA leftovers and food safety</a></div>
       <div>Rice, 24 hours: <a href="https://www.gov.uk/government/publications/home-food-fact-checker/home-food-fact-checker">UK FSA home food fact checker</a></div>
       <div>48-hour routine: <a href="https://www.gov.uk/government/publications/how-to-chill-freeze-and-defrost-food-safely/how-to-chill-freeze-and-defrost-food-safely">UK FSA chill, freeze and defrost</a></div>
-      <div>Frozen berries: <a href="https://www.fsai.ie/consumer-advice/food-safety-and-hygiene/berries-advice-to-boil-imported-frozen-berries">FSAI advice on imported frozen berries</a></div>
       <div>Budget shopping: <a href="https://www.usda.gov/about-usda/news/blog/healthy-eating-budget">USDA healthy eating on a budget</a></div>
-      <div>Habit formation: <a href="https://doi.org/10.1002/ejsp.674">Lally et al., 2010</a> · <a href="https://newsinhealth.nih.gov/2018/03/creating-healthy-habits">NIH creating healthy habits</a></div>
-      <div>Basal ganglia and habit: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3163829/">Seger and Spiering, 2011</a></div>
     </div>
     <div class="bar">
-      <div>Companion to the video. Cost figures are your own inputs. Preset label values are illustrative.</div>
+      <div>Cost figures are whatever you type in. Preset label values are typical numbers, not a specific brand.</div>
       <div>Masala Body · Masala Lab</div>
     </div>
   </footer>
@@ -733,12 +464,12 @@
   function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');}
   function fmt(n){if(!isFinite(n))return '–';return (Math.round(n*100)/100).toFixed(2).replace(/\.?0+$/,'');}
 
-  /* ---------- 1. meal builder ---------- */
+  /* meal builder */
   var COLS=[
-    {k:'protein',name:'Pick a substantial protein',sw:'#C4341C',items:[['Thick dal, rajma or chickpeas','Dal / rajma'],['Tofu or soy chunks','Tofu / soy'],['Chicken, eggs or fish','Chicken / eggs / fish'],['Plain Greek yoghurt or skyr','Greek yoghurt']]},
-    {k:'produce',name:'Add produce',sw:'#5C7A38',items:[['Frozen spinach or mixed veg','Frozen veg'],['Cabbage, carrots, peppers','Cabbage, carrots'],['Frozen broccoli or a salad','Broccoli / salad'],['Banana, apple or frozen fruit','Fruit']]},
-    {k:'starch',name:'Add starch',sw:'#E8A317',items:[['Rice or wholegrain bread','Rice / bread'],['Roti, rice or noodles','Roti / noodles'],['Potatoes, bread or rice','Potatoes / bread'],['Oats','Oats']]},
-    {k:'flavour',name:'Finish with flavour',sw:'#16130F',items:[['Cumin, chilli, lemon','Cumin, chilli, lemon'],['Ginger, garlic, a little sauce','Ginger, garlic, sauce'],['Yoghurt, spices, herbs','Yoghurt, spices, herbs'],['Cinnamon, a few nuts','Cinnamon, nuts']]}
+    {name:'Pick a substantial protein',sw:'#C4341C',items:[['Thick dal, rajma or chickpeas','Dal / rajma'],['Tofu or soy chunks','Tofu / soy'],['Chicken, eggs or fish','Chicken / eggs / fish'],['Plain Greek yoghurt or skyr','Greek yoghurt']]},
+    {name:'Add produce',sw:'#5C7A38',items:[['Frozen spinach or mixed veg','Frozen veg'],['Cabbage, carrots, peppers','Cabbage, carrots'],['Frozen broccoli or a salad','Broccoli / salad'],['Banana, apple or frozen fruit','Fruit']]},
+    {name:'Add starch',sw:'#E8A317',items:[['Rice or wholegrain bread','Rice / bread'],['Roti, rice or noodles','Roti / noodles'],['Potatoes, bread or rice','Potatoes / bread'],['Oats','Oats']]},
+    {name:'Finish with flavour',sw:'#16130F',items:[['Cumin, chilli, lemon','Cumin, chilli, lemon'],['Ginger, garlic, a little sauce','Ginger, garlic, sauce'],['Yoghurt, spices, herbs','Yoghurt, spices, herbs'],['Cinnamon, a few nuts','Cinnamon, nuts']]}
   ];
   var sel=[0,0,0,0];
   var cols=$('cols');
@@ -748,17 +479,14 @@
     c.items.forEach(function(it,ii){h+='<button class="opt" type="button" data-c="'+ci+'" data-i="'+ii+'" aria-pressed="false">'+it[0]+'</button>';});
     d.innerHTML=h;cols.appendChild(d);
   });
-  cols.addEventListener('click',function(e){
-    var b=e.target.closest('.opt');if(!b)return;
-    sel[+b.dataset.c]=+b.dataset.i;renderMeal();
-  });
+  cols.addEventListener('click',function(e){var b=e.target.closest('.opt');if(!b)return;sel[+b.dataset.c]=+b.dataset.i;renderMeal();});
+  function lc(s){return s.charAt(0).toLowerCase()+s.slice(1);}
   function renderMeal(){
     cols.querySelectorAll('.opt').forEach(function(b){b.setAttribute('aria-pressed',String(sel[+b.dataset.c]===+b.dataset.i));});
     $('pl-protein').textContent=COLS[0].items[sel[0]][1];
     $('pl-produce').textContent=COLS[1].items[sel[1]][1];
     $('pl-starch').textContent=COLS[2].items[sel[2]][1];
-    var p=COLS[0].items[sel[0]][0],v=COLS[1].items[sel[1]][0],s=COLS[2].items[sel[2]][0],f=COLS[3].items[sel[3]][0];
-    $('mealtxt').innerHTML='<em>'+esc(p)+'</em> with '+esc(v.charAt(0).toLowerCase()+v.slice(1))+' and '+esc(s.charAt(0).toLowerCase()+s.slice(1))+', finished with '+esc(f.charAt(0).toLowerCase()+f.slice(1))+'.';
+    $('mealtxt').innerHTML='<em>'+esc(COLS[0].items[sel[0]][0])+'</em> with '+esc(lc(COLS[1].items[sel[1]][0]))+' and '+esc(lc(COLS[2].items[sel[2]][0]))+', finished with '+esc(lc(COLS[3].items[sel[3]][0]))+'.';
     ls('ml-grad-meal',sel.join(','));
   }
   $('shuffle').addEventListener('click',function(){
@@ -769,25 +497,7 @@
   (function(){var s=ls('ml-grad-meal');if(s){var a=s.split(',').map(Number);if(a.length===4&&a.every(function(n){return n>=0&&n<4;}))sel=a;}})();
   renderMeal();
 
-  /* ---------- 1. label DV ---------- */
-  var dvx=1;
-  function renderDV(){
-    var v=+$('dvr').value,eff=v*dvx;
-    $('dvo').textContent=v+'%';
-    $('dvfill').style.width=Math.min(100,eff*2)+'%';
-    var w=eff<=5?'Low':eff>=20?'High':'In between';
-    $('dvword').firstChild.textContent=w;
-    $('dvsub').textContent=dvx===2?('Two servings: '+eff+'% of the day, per US label'):'5% or less is low, 20% or more is high';
-  }
-  $('dvr').addEventListener('input',renderDV);
-  $('dvread').querySelectorAll('[data-x]').forEach(function(b){b.addEventListener('click',function(){dvx=+b.dataset.x;$('dvread').querySelectorAll('[data-x]').forEach(function(x){x.classList.toggle('on',x===b);});renderDV();});});
-  renderDV();
-
-  /* ---------- 1. protein per calorie ---------- */
-  function renderPP(){var p=+$('ppP').value||0,k=+$('ppK').value||0;$('ppOut').textContent=k>0?fmt(p*200/k)+' g':'–';}
-  $('ppP').addEventListener('input',renderPP);$('ppK').addEventListener('input',renderPP);renderPP();
-
-  /* ---------- 2. five finger ---------- */
+  /* five finger */
   var PRE=[
     {n:'Instant noodles',s:'1 packet',k:380,p:8,f:2,su:1,sf:7,na:1700},
     {n:'Frozen pizza',s:'half a pizza',k:450,p:18,f:3,su:4,sf:8,na:900},
@@ -808,17 +518,16 @@
     var b=document.createElement('button');b.type='button';b.className='btn sm';b.textContent=p.n;b.dataset.i=i;
     b.addEventListener('click',function(){loadPre(i);});pre.appendChild(b);
   });
-  var custom=document.createElement('button');custom.type='button';custom.className='btn sm';custom.textContent='Your packet';custom.addEventListener('click',function(){ffName='Your packet';pre.querySelectorAll('.btn').forEach(function(x){x.classList.toggle('on',x===custom);});renderFF();});pre.appendChild(custom);
+  var custom=document.createElement('button');custom.type='button';custom.className='btn sm';custom.textContent='Your packet';
+  function useCustom(){ffName='Your packet';pre.querySelectorAll('.btn').forEach(function(x){x.classList.toggle('on',x===custom);});}
+  custom.addEventListener('click',function(){useCustom();renderFF();});pre.appendChild(custom);
   function loadPre(i){
     var p=PRE[i];ffName=p.n+' · '+p.s;
     $('fK').value=p.k;$('fP').value=p.p;$('fF').value=p.f;$('fS').value=p.su;$('fSF').value=p.sf;$('fNa').value=p.na;
     pre.querySelectorAll('.btn').forEach(function(x){x.classList.toggle('on',+x.dataset.i===i);});
     renderFF();
   }
-  ['fK','fP','fF','fS','fSF','fNa'].forEach(function(id){$(id).addEventListener('input',function(){
-    if(!pre.querySelector('.btn.on')||pre.querySelector('.btn.on')!==custom){ffName='Your packet';pre.querySelectorAll('.btn').forEach(function(x){x.classList.toggle('on',x===custom);});}
-    renderFF();
-  });});
+  ['fK','fP','fF','fS','fSF','fNa'].forEach(function(id){$(id).addEventListener('input',function(){useCustom();renderFF();});});
   function renderFF(){
     var k=+$('fK').value||0,sc=k>0?200/k:0;
     var vals={P:+$('fP').value||0,F:+$('fF').value||0,S:+$('fS').value||0,SF:+$('fSF').value||0,Na:+$('fNa').value||0};
@@ -831,16 +540,16 @@
     });
     $('crit').innerHTML=h;
     $('scoreTxt').textContent=score;$('handscore').textContent=score;$('scoreName').textContent=ffName;
-    var vd=k<=0?'Enter the calories per serving to score it.':score<2?'<em>Occasional indulgence.</em> Keep it for deadlines, flu or heartbreak.':score<4?'<em>Workable with additions.</em> Add an egg, tofu or frozen veg and go easy on the seasoning.':'<em>This is a meal.</em> Fine in regular rotation.';
+    var vd=k<=0?'Enter the calories per serving to score it.':score<2?'<em>Occasional indulgence.</em> Keep it for deadlines, flu or heartbreak.':score<4?'<em>Workable.</em> Add an egg, tofu or frozen vegetables and use less of the seasoning.':'<em>Fine in regular rotation.</em>';
     $('ffverdict').innerHTML=vd;
   }
   loadPre(0);
 
-  /* ---------- 3. currency ---------- */
+  /* cost */
   var CUR=ls('ml-grad-cur');if(CUR===null)CUR='$';
   $('curSel').value=CUR;
   function money(n){return CUR?CUR+fmt(n):fmt(n)+' units';}
-  $('curSel').addEventListener('change',function(){CUR=$('curSel').value;ls('ml-grad-cur',CUR);renderUnit();renderWaste();renderProt();});
+  $('curSel').addEventListener('change',function(){CUR=$('curSel').value;ls('ml-grad-cur',CUR);renderWaste();renderProt();});
 
   function abBox(id,side,name,fields,outLabel){
     var h='<div class="abx" id="'+id+side+'"><span class="tag stamp t" hidden>Cheaper</span><input class="name" type="text" id="'+id+side+'n" value="'+esc(name)+'" aria-label="Product name">';
@@ -858,15 +567,6 @@
     $(id+'Aout').classList.toggle('win',ok&&a<b);$(id+'Bout').classList.toggle('win',ok&&b<a);
   }
 
-  /* unit price */
-  $('unitAB').innerHTML=abBox('unit','A','Small pack',[['p','Price',2.4],['w','Weight, g or ml',500]],'per 100 g')+abBox('unit','B','Big pack',[['p','Price',4.2],['w','Weight, g or ml',1000]],'per 100 g');
-  function renderUnit(){
-    var r={};['A','B'].forEach(function(s){var p=+$('unit'+s+'p').value,w=+$('unit'+s+'w').value;r[s]=w>0?p*100/w:NaN;$('unit'+s+'out').textContent=money(r[s]);});
-    mark('unit',r.A,r.B);
-  }
-  bind('unit',renderUnit);renderUnit();
-
-  /* waste */
   $('wasteAB').innerHTML=abBox('waste','A','Fresh salad bag',[['p','Price',4],['n','Portions in the pack',4],['e','Share you will eat before it spoils',50,'range']],'per eaten portion')+abBox('waste','B','Frozen vegetables',[['p','Price',4],['n','Portions in the pack',4],['e','Share you will eat before it spoils',100,'range']],'per eaten portion');
   function renderWaste(){
     var r={};['A','B'].forEach(function(s){var p=+$('waste'+s+'p').value,n=+$('waste'+s+'n').value,e=+$('waste'+s+'e').value;$('waste'+s+'eo').textContent=e+'%';var eaten=n*e/100;r[s]=eaten>0?p/eaten:NaN;$('waste'+s+'out').textContent=money(r[s]);});
@@ -874,7 +574,6 @@
   }
   bind('waste',renderWaste);renderWaste();
 
-  /* protein value */
   $('protAB').innerHTML=abBox('prot','A','Dry red lentils, 500 g',[['p','Package price',2],['g','Protein in the whole package, g',120]],'per 20 g protein')+abBox('prot','B','Firm tofu, 400 g',[['p','Package price',2.5],['g','Protein in the whole package, g',32]],'per 20 g protein');
   function renderProt(){
     var r={};['A','B'].forEach(function(s){var p=+$('prot'+s+'p').value,g=+$('prot'+s+'g').value;r[s]=g>0?p/g*20:NaN;$('prot'+s+'out').textContent=money(r[s]);});
@@ -882,91 +581,7 @@
   }
   bind('prot',renderProt);renderProt();
 
-  /* ---------- 3. where does it live ---------- */
-  var loc='us';
-  var WHERE=[
-    ['Potatoes, onions','Cool, dark cupboard. Keep onions and potatoes apart if you can.',false,false],
-    ['Tomatoes','Counter. The fridge makes them mealy.',false,false],
-    ['Carrots, cabbage','Fridge. They keep for weeks, which is why they are in the basket.',true,true],
-    ['Delicate greens, herbs','Fridge, and eat them first. Or buy frozen and stop throwing them away.',true,true],
-    ['Eggs','US eggs are washed by law, which strips the shell’s protective cuticle and shortens shelf life outside the fridge.',true,'US: fridge. Elsewhere, unwashed eggs keep on the counter for a while; follow the pack.'],
-    ['Cooked food','Fridge within two hours, or the freezer. See the leftover clock below.',true,true]
-  ];
-  function renderWhere(){
-    var h='';
-    WHERE.forEach(function(w){
-      var cold=w[2],small=w[1];
-      if(w[0]==='Eggs'){cold=loc==='us';small=loc==='us'?w[1]:'Outside the US, eggs are usually sold unwashed with the cuticle intact, so a counter or a cool cupboard is common. Check the pack, and refrigerate once you have started chilling them.';}
-      h+='<div class="r"><div class="n">'+w[0]+'<small>'+small+'</small></div><span class="p'+(cold?' cold':'')+'">'+(cold?'Fridge':'Counter')+'</span></div>';
-    });
-    $('where').innerHTML=h;
-  }
-  document.querySelectorAll('[data-loc]').forEach(function(b){b.addEventListener('click',function(){loc=b.dataset.loc;document.querySelectorAll('[data-loc]').forEach(function(x){x.classList.toggle('on',x===b);});renderWhere();});});
-  renderWhere();
-
-  /* ---------- checklists ---------- */
-  function checklist(id,key,items){
-    var ul=$(id),count=$(id+'Count');
-    var saved=[];try{saved=JSON.parse(ls(key)||'[]');}catch(e){}
-    var h='';
-    items.forEach(function(t,i){h+='<li><label><input type="checkbox" id="'+id+'-'+i+'"'+(saved.indexOf(i)>-1?' checked':'')+'><span>'+t+'</span></label></li>';});
-    ul.innerHTML=h;
-    function upd(){
-      var on=[];ul.querySelectorAll('input').forEach(function(c,i){if(c.checked)on.push(i);});
-      ls(key,JSON.stringify(on));
-      count.textContent=on.length+' of '+items.length+(on.length===items.length?' · done':'');
-    }
-    ul.addEventListener('change',upd);
-    $(id+'Reset').addEventListener('click',function(){ul.querySelectorAll('input').forEach(function(c){c.checked=false;});upd();});
-    upd();
-  }
-  checklist('basket','ml-grad-basket',[
-    'Two protein staples <em>· lentils plus tofu, or eggs plus plain yoghurt</em>',
-    'Two starches <em>· oats plus rice or wholegrain bread</em>',
-    'Two plain frozen vegetables, plus one or two fresh ones you will actually use',
-    'Affordable whole fruit',
-    'Canned tomatoes, a cooking oil, a small set of seasonings',
-    'Ingredients for two complete fallback meals'
-  ]);
-  checklist('easy','ml-grad-easy',[
-    'Pan washed and back on the hob, ready',
-    'Food that needs eating moved to the front of the fridge',
-    'Delivery app promotions switched off',
-    'Fruit or roasted chana in the bag for the seminar that overruns',
-    'One routine chosen to start with <em>· breakfast is the easy one</em>',
-    'A meal for tomorrow already decided before you are hungry'
-  ]);
-  checklist('week','ml-grad-week',[
-    'Check fridge, freezer and cupboard before shopping',
-    'Choose two dinners and one breakfast to repeat this week',
-    'Buy ingredients that overlap between them',
-    'Keep an “eat first” area in the fridge',
-    'Add items to a shared list when they run low',
-    'With housemates, agree fridge space, ingredient costs and washing up'
-  ]);
-
-  /* ---------- 4. batch ---------- */
-  var BATCH=[['dal','Extra dal'],['rice','Extra rice'],['chk','Chicken or tofu'],['base','Onion-tomato base']];
-  var MEALS=[
-    ['Day 1','Dal, rice and a bag of frozen vegetables',['dal','rice']],
-    ['Day 2','Chicken or tofu in a wrap with cabbage and yoghurt',['chk']],
-    ['Day 3','Chickpea curry from the base, over rice',['base','rice']],
-    ['Day 4','Dal thinned into a soup with the chicken or tofu on top',['dal','chk']],
-    ['Freezer','Everything left, in single portions, labelled with contents and date',['dal','rice','chk','base']]
-  ];
-  var bname={};BATCH.forEach(function(b){bname[b[0]]=b[1];});
-  var bL=$('batchL'),bR=$('batchR'),bsel=null;
-  bL.innerHTML=BATCH.map(function(b){return '<button class="bt" type="button" data-b="'+b[0]+'" aria-pressed="false">'+b[1]+'</button>';}).join('');
-  bR.innerHTML=MEALS.map(function(m){return '<div class="ml" data-u="'+m[2].join(' ')+'"><div class="d">'+m[0]+'</div><div class="t">'+m[1]+'</div><div class="u">'+m[2].map(function(u){return '<span data-u="'+u+'">'+bname[u]+'</span>';}).join('')+'</div></div>';}).join('');
-  function renderBatch(){
-    $('batch').classList.toggle('sel',!!bsel);
-    bL.querySelectorAll('.bt').forEach(function(b){b.classList.toggle('on',b.dataset.b===bsel);b.setAttribute('aria-pressed',String(b.dataset.b===bsel));});
-    bR.querySelectorAll('.ml').forEach(function(m){var on=!!bsel&&m.dataset.u.split(' ').indexOf(bsel)>-1;m.classList.toggle('lit',on);m.querySelectorAll('span').forEach(function(s){s.classList.toggle('hit',on&&s.dataset.u===bsel);});});
-  }
-  bL.addEventListener('click',function(e){var b=e.target.closest('.bt');if(!b)return;bsel=bsel===b.dataset.b?null:b.dataset.b;renderBatch();});
-  renderBatch();
-
-  /* ---------- 4. leftover clock ---------- */
+  /* leftover clock */
   var food='other',hot=0;
   var now=new Date();now.setMinutes(Math.round(now.getMinutes()/15)*15,0,0);
   $('lcT').value=('0'+now.getHours()).slice(-2)+':'+('0'+now.getMinutes()).slice(-2);
@@ -980,9 +595,9 @@
     var fridgeH=hot?1:(food==='rice'?1:2),eatH=food==='rice'?24:48;
     var f=new Date(base.getTime()+fridgeH*36e5),e=new Date(base.getTime()+eatH*36e5);
     var h='';
-    h+='<div><div class="k">Cooked</div><div class="when">'+tfmt(base,base)+'</div><div class="why">Divide into shallow containers straight away so it cools fast.'+(food==='rice'?' Rice can carry spores that survive cooking, so speed matters more here.':'')+'</div></div>';
-    h+='<div><div class="k">In the fridge by</div><div class="when">'+tfmt(f,base)+'</div><div class="why"><b>'+fridgeH+' hour'+(fridgeH>1?'s':'')+'</b>'+(hot?' because the room is above 32°C / 90°F.':food==='rice'?', ideally. Cool rice quickly and refrigerate.':' at most. Sooner is better.')+' Freeze anything you will not eat in the next day or two.</div></div>';
-    h+='<div><div class="k">Eat or freeze by</div><div class="when">'+tfmt(e,base)+'</div><div class="why"><b>'+eatH+' hours</b> in the fridge'+(food==='rice'?'. Reheat rice once only, and only the portion you need.':' on the conservative routine. Reheat thoroughly and stir so there are no cold patches.')+'</div></div>';
+    h+='<div><div class="k">Cooked</div><div class="when">'+tfmt(base,base)+'</div><div class="why">Divide it into shallow containers now so it cools fast.'+(food==='rice'?' Cooked rice can carry spores that survive boiling, which is why the rice limits are shorter.':'')+'</div></div>';
+    h+='<div><div class="k">In the fridge by</div><div class="when">'+tfmt(f,base)+'</div><div class="why"><b>'+fridgeH+' hour'+(fridgeH>1?'s':'')+'</b>'+(hot?', because the room is above 32°C / 90°F.':food==='rice'?', ideally.':' at most.')+' Freeze anything you will not eat in the next day or two.</div></div>';
+    h+='<div><div class="k">Eat or freeze by</div><div class="when">'+tfmt(e,base)+'</div><div class="why"><b>'+eatH+' hours</b> in the fridge'+(food==='rice'?'. Reheat rice once, and only the portion you need.':'. Reheat until steaming throughout and stir so there are no cold patches.')+'</div></div>';
     $('clock').innerHTML=h;
   }
   $('lcT').addEventListener('input',renderClock);
@@ -990,13 +605,7 @@
   document.querySelectorAll('[data-hot]').forEach(function(b){b.addEventListener('click',function(){hot=+b.dataset.hot;document.querySelectorAll('[data-hot]').forEach(function(x){x.classList.toggle('on',x===b);});renderClock();});});
   renderClock();
 
-  /* ---------- 6. meals to learn ---------- */
-  var learn=$('learn'),saved=[];try{saved=JSON.parse(ls('ml-grad-learn')||'[]');}catch(e){}
-  var PH=['The dal you never get tired of','The one-pot rice thing','Something with eggs','The vegetable you actually like','A breakfast that takes five minutes'];
-  learn.innerHTML=PH.map(function(p,i){return '<div class="row"><i>'+(i+1)+'</i><input type="text" id="learn'+i+'" placeholder="'+esc(p)+'" value="'+esc(saved[i]||'')+'" aria-label="Meal '+(i+1)+'"></div>';}).join('');
-  learn.addEventListener('input',function(){var a=[];for(var i=0;i<5;i++)a.push($('learn'+i).value);ls('ml-grad-learn',JSON.stringify(a));});
-
-  /* ---------- nav highlight ---------- */
+  /* nav highlight */
   var links=document.querySelectorAll('#nav .chip'),secs=[];
   links.forEach(function(a){var s=document.querySelector(a.getAttribute('href'));if(s)secs.push([s,a]);});
   if('IntersectionObserver' in window){
