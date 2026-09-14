@@ -1,0 +1,678 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Masala Body Abroad · Video cards</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#16130F;--paper:#F3E9D2;--paper-deep:#EADDBF;--turmeric:#E8A317;--chilli:#C4341C;--cardamom:#5C7A38;--smoke:#7C7266;
+    --rule:rgba(22,19,15,.18);
+    --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;--sans:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif;--display:"Archivo Black","Arial Black",Impact,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%;background:#0B0A09;color:var(--ink);font-family:var(--sans);overflow:hidden}
+  body.green{background:#00B140}
+  #wrap{position:absolute;inset:0 0 56px 0;display:flex;align-items:center;justify-content:center}
+  body.nohud #wrap{inset:0}
+  #stage{width:1920px;height:1080px;position:relative;transform-origin:center center;flex:none}
+
+  /* card base */
+  .card{position:absolute;inset:0;display:none;padding:110px 140px;background:var(--paper);overflow:hidden}
+  .card.on{display:block}
+  .card::after{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(var(--ink) 1.3px,transparent 1.3px);background-size:11px 11px;opacity:.055}
+  .card > *{position:relative;z-index:1}
+  .card.lower{background:transparent;padding:0}
+  .card.lower::after{display:none}
+  .card.dark{background:var(--ink);color:var(--paper)}
+
+  .brand{position:absolute;left:140px;top:64px;display:flex;align-items:center;gap:16px;font-family:var(--mono);font-weight:600;font-size:24px;letter-spacing:.34em;text-transform:uppercase}
+  .brand::before{content:"";width:22px;height:22px;background:var(--chilli);border-radius:50%}
+  .card.dark .brand{color:var(--paper)}
+  .stamp{position:absolute;right:140px;top:64px;font-family:var(--mono);font-size:22px;letter-spacing:.18em;text-transform:uppercase;color:var(--smoke)}
+  .card.dark .stamp{color:rgba(243,233,210,.6)}
+
+  .k{font-family:var(--mono);font-size:26px;letter-spacing:.22em;text-transform:uppercase;color:var(--smoke)}
+  .k b{color:var(--chilli);font-weight:600}
+  .card.dark .k{color:rgba(243,233,210,.65)}
+  h1{font-family:var(--display);font-size:150px;line-height:.92;letter-spacing:-.03em;text-transform:uppercase;text-wrap:balance;max-width:16ch}
+  h2{font-family:var(--display);font-size:104px;line-height:.96;letter-spacing:-.025em;text-wrap:balance;margin-top:22px;max-width:18ch}
+  h3{font-family:var(--display);font-size:64px;line-height:1;letter-spacing:-.02em;margin-top:16px;text-wrap:balance}
+  em{font-style:normal;color:var(--chilli)}
+  .card.dark em{color:var(--turmeric)}
+  .big{font-family:var(--display);font-size:200px;line-height:.9;letter-spacing:-.04em}
+  .rule{height:8px;background:var(--ink);margin:44px 0}
+  .card.dark .rule{background:var(--paper)}
+  p.body{font-size:44px;line-height:1.35;max-width:26ch;margin-top:28px}
+  p.mono{font-family:var(--mono);font-size:30px;line-height:1.4;color:var(--smoke);margin-top:30px;letter-spacing:.02em;max-width:60ch}
+  .center{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;text-align:center}
+  .center h1,.center h2,.center h3{max-width:none}
+  .mid{display:flex;flex-direction:column;justify-content:center;height:100%}
+
+  /* reveal steps */
+  .s{opacity:0;transform:translateY(18px);transition:opacity .4s ease,transform .4s ease}
+  .s.on{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.s{transition:none}}
+
+  /* generic grids */
+  .cols{display:grid;gap:40px;margin-top:56px}
+  .c2{grid-template-columns:1fr 1fr}.c3{grid-template-columns:1fr 1fr 1fr}.c4{grid-template-columns:repeat(4,1fr)}
+  .box{border:5px solid var(--ink);padding:36px 40px}
+  .box .k{margin-bottom:14px}
+  .box .t{font-family:var(--display);font-size:44px;line-height:1.05;letter-spacing:-.015em}
+  .box ul{list-style:none;margin-top:22px}
+  .box li{font-size:36px;line-height:1.3;padding:10px 0;border-top:3px solid var(--rule)}
+  .box li:first-child{border-top:none}
+  .list{list-style:none;margin-top:44px;border-top:6px solid var(--ink)}
+  .list li{display:grid;grid-template-columns:90px 1fr;gap:28px;align-items:baseline;padding:22px 0;border-bottom:3px solid var(--rule);font-size:46px;line-height:1.25}
+  .list li i{font-family:var(--display);font-style:normal;font-size:54px;color:var(--chilli);text-align:right}
+  .list.plain li{grid-template-columns:1fr}
+  .list li small{display:block;font-family:var(--mono);font-size:26px;color:var(--smoke);margin-top:6px;letter-spacing:.03em}
+  .chips{display:flex;flex-wrap:wrap;gap:16px;margin-top:28px}
+  .chips span{font-family:var(--mono);font-size:32px;letter-spacing:.02em;border:4px solid var(--ink);padding:14px 24px;border-radius:999px}
+  .chips.no span{border-color:var(--rule);color:var(--smoke);text-decoration:line-through;text-decoration-color:var(--chilli);text-decoration-thickness:5px}
+  .chips.dash span{border-style:dashed}
+  .flow{display:flex;align-items:center;gap:26px;flex-wrap:wrap}
+  .flow .st{font-family:var(--display);font-size:52px;line-height:1;border:5px solid var(--ink);padding:26px 36px;background:var(--paper)}
+  .flow .st.cue{background:var(--turmeric)}
+  .flow .st.end{background:var(--ink);color:var(--paper)}
+  .flow.old .st:not(.cue){border-color:var(--rule);color:var(--smoke);background:transparent}
+  .flow.old .st.end{border-color:var(--chilli);color:var(--chilli);background:transparent}
+  .flow .ar{font-family:var(--mono);font-size:56px;color:var(--smoke)}
+  .who{font-family:var(--mono);font-size:26px;letter-spacing:.2em;text-transform:uppercase;color:var(--smoke);margin:56px 0 18px}
+  .eq{display:flex;align-items:center;gap:34px;flex-wrap:wrap;margin-top:60px}
+  .eq .op{font-family:var(--display);font-size:120px;color:var(--chilli);line-height:1}
+  .eq .it{font-family:var(--display);font-size:60px;line-height:1;border:5px solid var(--ink);padding:30px 38px}
+  .eq .it small{display:block;font-family:var(--mono);font-size:24px;letter-spacing:.14em;text-transform:uppercase;color:var(--smoke);margin-top:12px}
+  table{border-collapse:collapse;width:100%;margin-top:48px;font-variant-numeric:tabular-nums}
+  th{font-family:var(--mono);font-size:26px;letter-spacing:.16em;text-transform:uppercase;color:var(--smoke);text-align:left;padding:0 0 16px;border-bottom:6px solid var(--ink);font-weight:500}
+  td{font-size:42px;line-height:1.25;padding:24px 40px 24px 0;border-bottom:3px solid var(--rule);vertical-align:top}
+  td.n,th.n{text-align:right;padding-right:0;font-family:var(--display);font-size:52px;white-space:nowrap}
+  th.n{font-family:var(--mono);font-size:26px}
+  td.w{color:var(--chilli)}
+
+  /* plate */
+  .plate{display:grid;grid-template-columns:760px 1fr;gap:100px;align-items:center;height:100%}
+  .plate svg{width:760px;height:760px}
+  .plate .pk{font-family:var(--mono);font-size:9px;fill:var(--paper);letter-spacing:.16em;text-transform:uppercase;opacity:.85}
+  .plate .pl{font-family:var(--display);font-size:15px;fill:var(--paper);letter-spacing:-.01em}
+  .leg{display:grid;gap:34px}
+  .leg > div{display:grid;grid-template-columns:44px 1fr;gap:26px;align-items:start}
+  .leg i{width:44px;height:44px;margin-top:10px}
+  .leg b{font-family:var(--display);font-size:56px;line-height:1;display:block}
+  .leg span{font-size:34px;color:var(--smoke);display:block;margin-top:8px}
+
+  /* dv bar */
+  .dvbar{position:relative;height:56px;border:6px solid var(--ink);margin:80px 0 20px;background:var(--paper-deep)}
+  .dvbar b{position:absolute;top:0;bottom:0;left:0;background:var(--turmeric)}
+  .dvbar i{position:absolute;top:-6px;bottom:-6px;width:6px;background:var(--ink)}
+  .dvbar span{position:absolute;top:70px;transform:translateX(-50%);font-family:var(--display);font-size:44px;white-space:nowrap}
+  .dvbar span small{display:block;font-family:var(--mono);font-size:24px;letter-spacing:.16em;text-transform:uppercase;color:var(--smoke);margin-top:6px}
+
+  /* hand */
+  .ff{display:grid;grid-template-columns:640px 1fr;gap:90px;align-items:center;height:100%}
+  .ff svg{width:640px;height:auto}
+  .ff .fg{fill:var(--paper-deep);stroke:var(--ink);stroke-width:5;stroke-dasharray:10 8;transition:fill .3s}
+  .ff .fg.on{fill:var(--turmeric);stroke-dasharray:none}
+  .ff .palm{fill:var(--paper);stroke:var(--ink);stroke-width:5}
+  .ff .list li{grid-template-columns:70px 1fr auto}
+  .ff .list li i{width:46px;height:46px;border:5px solid var(--ink);display:inline-block;font-size:0;transition:background .3s}
+  .ff .list li.on i{background:var(--turmeric)}
+  .ff .list li span.v{font-family:var(--display);font-size:46px;white-space:nowrap}
+
+  /* lower third */
+  .lt{position:absolute;left:100px;right:100px;bottom:90px;background:var(--paper);border:8px solid var(--ink);padding:44px 56px;display:grid;grid-template-columns:520px 1fr;gap:56px;align-items:start}
+  .lt .k{margin-top:8px}
+  .lt h3{margin-top:10px;font-size:54px}
+  .lt ol{list-style:none;display:grid;gap:14px}
+  .lt li{display:grid;grid-template-columns:70px 1fr;gap:20px;align-items:baseline;font-size:36px;line-height:1.3}
+  .lt li i{font-family:var(--display);font-style:normal;font-size:44px;color:var(--chilli)}
+  .lt li b{font-weight:600}
+
+  /* dark four */
+  .four{list-style:none;counter-reset:n;margin-top:60px;display:grid;gap:10px}
+  .four li{counter-increment:n;display:grid;grid-template-columns:120px 1fr;gap:30px;align-items:baseline;font-size:60px;line-height:1.2;padding:26px 0;border-top:3px solid rgba(243,233,210,.22)}
+  .four li::before{content:counter(n);font-family:var(--display);font-size:90px;color:var(--turmeric);line-height:1}
+  .four li small{display:block;font-size:38px;opacity:.8;margin-top:6px}
+
+  /* HUD */
+  #hud{position:absolute;left:0;right:0;bottom:0;height:56px;background:#141210;color:#C9BFA9;font-family:var(--mono);font-size:13px;display:flex;align-items:center;gap:22px;padding:0 18px;border-top:1px solid #2A2621;letter-spacing:.02em;white-space:nowrap;overflow:hidden}
+  body.nohud #hud{display:none}
+  #hud b{color:#F3E9D2;font-weight:600}
+  #hud .cue{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;color:#E8A317}
+  #hud .keys{opacity:.6}
+  #hud button{appearance:none;background:none;border:1px solid #3a352e;color:#C9BFA9;font:inherit;padding:4px 8px;cursor:pointer}
+  #hud button:hover{border-color:#E8A317;color:#F3E9D2}
+
+  /* index */
+  #idx{position:absolute;inset:0;background:rgba(11,10,9,.96);color:#F3E9D2;overflow:auto;padding:40px;display:none;z-index:10;font-family:var(--mono)}
+  #idx.on{display:block}
+  #idx h4{font-family:var(--display);font-size:28px;letter-spacing:-.01em;margin-bottom:6px}
+  #idx p{font-size:13px;color:#9a9083;margin-bottom:26px}
+  #idx .g{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:8px}
+  #idx button{appearance:none;text-align:left;background:#16130F;border:1px solid #2A2621;color:#F3E9D2;padding:12px 14px;font:inherit;font-size:13px;cursor:pointer;line-height:1.5}
+  #idx button:hover{border-color:#E8A317}
+  #idx button b{color:#E8A317;font-weight:600}
+  #idx button small{display:block;color:#9a9083}
+</style>
+</head>
+<body>
+<div id="wrap"><div id="stage">
+
+<!-- ===== OPENING ===== -->
+<section class="card" data-ch="Opening" data-t="00:00" data-title="Main title" data-cue="So how do you eat reasonably well without spending too much money or spending hours cooking every day? (bring title in over this line)">
+  <div class="brand">Masala Body</div>
+  <div class="mid">
+    <div class="k s">The grad student’s guide to</div>
+    <h1 class="s">Eating healthy <em>abroad</em></h1>
+    <p class="mono s">Without spending all your money, or hours cooking every day.</p>
+  </div>
+</section>
+
+<!-- ===== 1 NUTRITION ===== -->
+<section class="card" data-ch="1 · Nutrition" data-t="00:40" data-title="Chapter title" data-cue="Chapter title, about two seconds, voice continues underneath.">
+  <div class="brand">Masala Body</div>
+  <div class="center"><div class="k">Chapter 1</div><h2>What makes a balanced meal?</h2></div>
+</section>
+
+<section class="card" data-ch="1 · Nutrition" data-t="00:55" data-title="The plate" data-cue="As a rough guide, picture half a plate of vegetables and fruit, a quarter of protein rich foods, and a quarter of grains, preferably wholegrain.">
+  <div class="brand">Masala Body</div>
+  <div class="stamp">A rough guide, not compartments</div>
+  <div class="plate">
+    <svg viewBox="0 0 320 320" aria-hidden="true">
+      <circle cx="160" cy="160" r="134" fill="none" stroke="#16130F" stroke-width="3"/>
+      <g class="s"><path d="M160,36 A124,124 0 0 0 160,284 L160,160 Z" fill="#5C7A38"/><text class="pk" x="98" y="146" text-anchor="middle">Half</text><text class="pl" x="98" y="176" text-anchor="middle">Produce</text></g>
+      <g class="s"><path d="M284,160 A124,124 0 0 1 160,284 L160,160 Z" fill="#C4341C"/><text class="pk" x="218" y="216" text-anchor="middle">Quarter</text><text class="pl" x="218" y="244" text-anchor="middle">Protein</text></g>
+      <g class="s"><path d="M160,36 A124,124 0 0 1 284,160 L160,160 Z" fill="#E8A317"/><text class="pk" x="218" y="92" text-anchor="middle">Quarter</text><text class="pl" x="218" y="120" text-anchor="middle">Grains</text></g>
+    </svg>
+    <div class="leg">
+      <div class="s"><i style="background:#5C7A38;border-radius:50%"></i><div><b>Vegetables and fruit</b><span>Fresh or frozen</span></div></div>
+      <div class="s"><i style="background:#C4341C"></i><div><b>A substantial protein</b><span>Dal, beans, tofu, eggs, chicken, fish, yoghurt</span></div></div>
+      <div class="s"><i style="background:#E8A317"></i><div><b>Grains or starch</b><span>Rice, bread, roti, potatoes. Wholegrain where you can</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="card" data-ch="1 · Nutrition" data-t="01:05" data-title="Two example meals" data-cue="You could have rice, rajma, frozen vegetables and curd. You could also have a chicken sandwich with vegetables and an apple.">
+  <div class="brand">Masala Body</div>
+  <div class="mid">
+    <div class="k">Two balanced meals</div>
+    <div class="cols c2">
+      <div class="box s"><div class="k">Meal one</div><div class="t">Rice, rajma, frozen vegetables, curd</div></div>
+      <div class="box s"><div class="k">Meal two</div><div class="t">Chicken sandwich with vegetables, and an apple</div></div>
+    </div>
+    <div class="who s">Vegetarian protein rotation</div>
+    <div class="chips s"><span>Thick dal</span><span>Beans</span><span>Tofu</span><span>Soy chunks</span><span>Milk</span><span>Yoghurt</span></div>
+    <p class="mono s">A watery spoonful of sambar is not the protein a thick bowl of dal or a sundal is.</p>
+  </div>
+</section>
+
+<section class="card" data-ch="1 · Nutrition" data-t="01:20" data-title="Meal builder table" data-cue="Production card. Show over the nutrition chapter or hold as a screenshot. Rows animate in.">
+  <div class="brand">Masala Body</div>
+  <div class="stamp">Meal builder</div>
+  <div class="mid">
+    <table>
+      <tr><th>Pick a protein</th><th>Add produce</th><th>Add starch</th><th>Finish with flavour</th></tr>
+      <tr class="s"><td>Thick dal, rajma or chickpeas</td><td>Frozen spinach or mixed vegetables</td><td>Rice or wholegrain bread</td><td>Cumin, chilli, lemon</td></tr>
+      <tr class="s"><td>Tofu or soy chunks</td><td>Cabbage, carrots, peppers</td><td>Roti, rice or noodles</td><td>Ginger, garlic, a little sauce</td></tr>
+      <tr class="s"><td>Chicken, eggs or fish</td><td>Frozen broccoli or a salad</td><td>Potatoes, bread or rice</td><td>Yoghurt, spices, herbs</td></tr>
+      <tr class="s"><td>Plain Greek yoghurt or skyr</td><td>Banana, apple or frozen fruit</td><td>Oats</td><td>Cinnamon, a few nuts</td></tr>
+    </table>
+  </div>
+</section>
+
+<section class="card" data-ch="1 · Nutrition" data-t="01:30" data-title="Label reading order" data-cue="When you read labels, compare similar products in the same quantity… Check protein and fibre, followed by added sugar, sodium and saturated fat.">
+  <div class="brand">Masala Body</div>
+  <div class="stamp">Same product type · same quantity</div>
+  <div class="mid">
+    <div class="k">Reading a label</div>
+    <div class="cols c2" style="align-items:start">
+      <ol class="list">
+        <li class="s"><i>1</i><span>Protein</span></li>
+        <li class="s"><i>2</i><span>Fibre</span></li>
+        <li class="s"><i>3</i><span>Added sugar</span></li>
+        <li class="s"><i>4</i><span>Sodium</span></li>
+        <li class="s"><i>5</i><span>Saturated fat</span></li>
+      </ol>
+      <div>
+        <table class="s">
+          <tr><th>Per 150 g</th><th class="n">Yoghurt A</th><th class="n">Yoghurt B</th></tr>
+          <tr><td>Protein</td><td class="n">5 g</td><td class="n w">15 g</td></tr>
+          <tr><td>Added sugar</td><td class="n">12 g</td><td class="n w">0 g</td></tr>
+          <tr><td>Calories</td><td class="n">140</td><td class="n">90</td></tr>
+        </table>
+        <p class="mono s">Illustrative labels. Then check the calories in the portion you will actually eat.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="card" data-ch="1 · Nutrition" data-t="01:45" data-title="5% / 20% rule" data-cue="On American labels, five percent Daily Value or less counts as low, and twenty percent or more counts as high. These numbers are per serving.">
+  <div class="brand">Masala Body</div>
+  <div class="stamp">US labels · per serving</div>
+  <div class="mid">
+    <div class="k">Daily Value</div>
+    <h2>Low, high, and <em>the middle</em></h2>
+    <div class="dvbar s"><b style="width:12%"></b><i style="left:12%"></i><i style="left:48%"></i><span style="left:12%">5%<small>or less is low</small></span><span style="left:48%">20%<small>or more is high</small></span></div>
+    <p class="mono s" style="margin-top:150px">Eating two servings? Double the numbers. Outside the US, use the per-100 g column to compare.</p>
+  </div>
+</section>
+
+<section class="card" data-ch="1 · Nutrition" data-t="02:05" data-title="Protein per calorie" data-cue="A food with twenty grams of protein in two hundred calories gives you twice as much as one with ten grams in the same calories.">
+  <div class="brand">Masala Body</div>
+  <div class="stamp">Buying for protein</div>
+  <div class="mid">
+    <div class="k">Protein for the calories</div>
+    <div class="cols c2">
+      <div class="box s"><div class="big">20 g</div><div class="k" style="margin-top:20px">protein in 200 kcal</div></div>
+      <div class="box s" style="border-color:var(--rule);color:var(--smoke)"><div class="big">10 g</div><div class="k" style="margin-top:20px">protein in 200 kcal</div></div>
+    </div>
+    <p class="mono s">Nuts: good fats, fibre and minerals. Not your cheapest main protein.</p>
+  </div>
+</section>
+
+<!-- ===== 2 PACKAGED ===== -->
+<section class="card" data-ch="2 · Packaged food" data-t="02:30" data-title="Chapter title" data-cue="Chapter title, about two seconds.">
+  <div class="brand">Masala Body</div>
+  <div class="center"><div class="k">Chapter 2</div><h2>Which shortcuts are worth buying?</h2></div>
+</section>
+
+<section class="card" data-ch="2 · Packaged food" data-t="02:40" data-title="Three kinds of shortcut" data-cue="With a complete meal… most decisions have been made. Then there are cooked components… You also have convenience ingredients. (Columns are ink only. No traffic-light colours, no health ranking.)">
+  <div class="brand">Masala Body</div>
+  <div class="stamp">How much has been decided for you?</div>
+  <div class="mid">
+    <div class="cols c3">
+      <div class="box s"><div class="k">Complete meals</div><div class="t">Most decisions made</div><ul><li>Frozen pizza</li><li>Ready-to-eat curry</li><li>Instant noodles</li></ul></div>
+      <div class="box s"><div class="k">Cooked components</div><div class="t">Cooking done, assembly yours</div><ul><li>Microwave rice, cooked dal</li><li>Rotisserie chicken</li><li>Frozen chapatis, hummus</li></ul></div>
+      <div class="box s"><div class="k">Convenience ingredients</div><div class="t">Chopping done</div><ul><li>Canned chickpeas, tomatoes</li><li>Frozen spinach</li><li>Oats, pre-cut salad</li></ul></div>
+    </div>
+    <p class="mono s">These tell you how much preparation has been done, not how healthy the food is.</p>
+  </div>
+</section>
+
+<section class="card" data-ch="2 · Packaged food" data-t="03:00" data-title="Five finger test" data-cue="I'll give you a simple five finger test… Take 200 calories of it and award one point each for… (fingers light one by one)">
+  <div class="brand">Masala Body</div>
+  <div class="stamp">Per 200 kcal of a packaged food</div>
+  <div class="ff">
+    <svg viewBox="-40 0 300 300" aria-hidden="true">
+      <rect class="fg" id="vf0" x="12" y="150" width="34" height="98" rx="17" transform="rotate(-28 29 245)"/>
+      <rect class="fg" id="vf1" x="62" y="42" width="34" height="122" rx="17"/>
+      <rect class="fg" id="vf2" x="102" y="20" width="34" height="144" rx="17"/>
+      <rect class="fg" id="vf3" x="142" y="36" width="34" height="128" rx="17"/>
+      <rect class="fg" id="vf4" x="182" y="72" width="34" height="92" rx="17"/>
+      <rect class="palm" x="58" y="172" width="160" height="112" rx="34"/>
+    </svg>
+    <div>
+      <div class="k">The five finger test</div>
+      <ol class="list">
+        <li class="s fin" data-f="0"><i></i><span>Protein</span><span class="v">≥ 10 g</span></li>
+        <li class="s fin" data-f="1"><i></i><span>Fibre</span><span class="v">≥ 3 g</span></li>
+        <li class="s fin" data-f="2"><i></i><span>Added sugar</span><span class="v">≤ 5 g</span></li>
+        <li class="s fin" data-f="3"><i></i><span>Saturated fat</span><span class="v">≤ 2 g</span></li>
+        <li class="s fin" data-f="4"><i></i><span>Sodium</span><span class="v">≤ 200 mg</span></li>
+      </ol>
+      <p class="mono s">Under 2 out of 5: an occasional indulgence, not a regular meal.</p>
+    </div>
+  </div>
+</section>
+
+<section class="card" data-ch="2 · Packaged food" data-t="03:30" data-title="Upgrade instant noodles" data-cue="If you're having instant noodles, you could add an egg or tofu and frozen vegetables, and use less of the seasoning if it's salty.">
+  <div class="brand">Masala Body</div>
+  <div class="stamp">For deadlines, flu or heartbreak</div>
+  <div class="mid">
+    <div class="k">Making a packet more of a meal</div>
+    <div class="eq">
+      <div class="it s">Instant noodles</div>
+      <div class="op s">+</div>
+      <div class="it s">Egg or tofu<small>protein</small></div>
+      <div class="op s">+</div>
+      <div class="it s">Frozen vegetables<small>fibre</small></div>
+      <div class="op s">−</div>
+      <div class="it s">Half the seasoning<small>sodium</small></div>
+    </div>
+    <p class="mono s">It does not remove what is already in the noodles. It does make a more substantial meal.</p>
+  </div>
+</section>
+
+<section class="card" data-ch="2 · Packaged food" data-t="04:00" data-title="Freezing and canning" data-cue="And please don't assume that freezing vegetables makes them nutritionally useless… Canning uses heat and a sealed container…">
+  <div class="brand">Masala Body</div>
+  <div class="stamp">Frozen and canned</div>
+  <div class="mid">
+    <ol class="list plain">
+      <li class="s"><span>Freezing stops microbes multiplying while the food is frozen. <small>It slows spoilage. It does not sterilise.</small></span></li>
+      <li class="s"><span>Protein and fibre largely remain. Many vitamins hold up well.</span></li>
+      <li class="s"><span>Canning uses heat in a sealed container. <small>Some vitamins are lost. The beans stay nutritious.</small></span></li>
+      <li class="s"><span>Fresh spinach you keep throwing away is worth less than frozen spinach you eat.</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===== 3 COST ===== -->
+<section class="card" data-ch="3 · Cost" data-t="04:26" data-title="Chapter title" data-cue="Chapter title, about two seconds.">
+  <div class="brand">Masala Body</div>
+  <div class="center"><div class="k">Chapter 3</div><h2>How to spend less on food</h2></div>
+</section>
+
+<section class="card" data-ch="3 · Cost" data-t="04:30" data-title="Unit prices" data-cue="Compare prices per kilogram, litre or hundred grams, because the bigger packet isn't automatically cheaper. Supermarket own brands are worth trying for staples.">
+  <div class="brand">Masala Body</div>
+  <div class="stamp">Shelf price labels</div>
+  <div class="mid">
+    <div class="k">Compare the unit price</div>
+    <div class="chips s" style="margin-top:44px"><span>per kg</span><span>per litre</span><span>per 100 g</span></div>
+    <h3 class="s" style="margin-top:70px">The bigger packet is not <em>automatically</em> cheaper.</h3>
+    <p class="mono s">Own brands for staples: dal, rice, oats, canned tomatoes.</p>
+  </div>
+</section>
+
+<section class="card" data-ch="3 · Cost" data-t="04:45" data-title="Waste-adjusted cost" data-cue="A giant salad bag at half price doesn't save you money if most of it spoils and it goes in the dustbin. (Illustrative arithmetic, not local prices.)">
+  <div class="brand">Masala Body</div>
+  <div class="stamp">Illustrative arithmetic</div>
+  <div class="mid">
+    <table>
+      <tr><th>You buy</th><th>You eat</th><th class="n">Per eaten portion</th></tr>
+      <tr class="s"><td>4 units of fresh vegetables</td><td>Half discarded, two portions eaten</td><td class="n">2</td></tr>
+      <tr class="s"><td>4 units of frozen vegetables</td><td>Four portions eaten</td><td class="n w">1</td></tr>
+      <tr class="s"><td>12 units for a takeaway</td><td>One meal</td><td class="n">12</td></tr>
+      <tr class="s"><td>6 units for an assembled meal</td><td>One meal</td><td class="n w">6</td></tr>
+    </table>
+  </div>
+</section>
+
+<section class="card" data-ch="3 · Cost" data-t="05:00" data-title="Counter or fridge" data-cue="Potatoes, onions and tomatoes do not need to be refrigerated, but in the US, you must refrigerate eggs… commercial eggs are required to be washed in the US, and that removes the cuticle.">
+  <div class="brand">Masala Body</div>
+  <div class="mid">
+    <div class="cols c2">
+      <div class="box s"><div class="k">Counter</div><div class="t">Potatoes, onions, tomatoes</div></div>
+      <div class="box s"><div class="k">Fridge, in the US</div><div class="t">Eggs</div><ul><li>Washed by law. Washing strips the shell’s cuticle and shortens shelf life outside the fridge.</li></ul></div>
+    </div>
+    <p class="mono s">Carrots and cabbage keep for weeks in the fridge. Eat the delicate vegetables first.</p>
+  </div>
+</section>
+
+<section class="card" data-ch="3 · Cost" data-t="05:12" data-title="Restaurant dal" data-cue="Restaurant dal will likely have 3 times the calories as a homecooked one. Paying a little for convenience can reduce what you spend overall AND keep you healthy.">
+  <div class="brand">Masala Body</div>
+  <div class="center">
+    <div class="k s">Restaurant dal versus your dal</div>
+    <div class="big s" style="font-size:340px;margin-top:30px">≈3×</div>
+    <div class="k s" style="margin-top:20px">the calories</div>
+    <p class="mono s" style="text-align:center">Canned beans that stop you ordering in are cheap.</p>
+  </div>
+</section>
+
+<section class="card" data-ch="3 · Cost" data-t="05:20" data-title="First shopping basket" data-cue="Production card, near the end of the cost section. Not a requirement to buy everything.">
+  <div class="brand">Masala Body</div>
+  <div class="stamp">First shopping basket</div>
+  <div class="mid">
+    <ol class="list">
+      <li class="s"><i>1</i><span>Two protein staples <small>lentils plus tofu, or eggs plus plain yoghurt</small></span></li>
+      <li class="s"><i>2</i><span>Two starches <small>oats plus rice or wholegrain bread</small></span></li>
+      <li class="s"><i>3</i><span>Two plain frozen vegetables, one or two fresh ones you will use</span></li>
+      <li class="s"><i>4</i><span>Affordable whole fruit</span></li>
+      <li class="s"><i>5</i><span>Canned tomatoes, a cooking oil, a few seasonings</span></li>
+      <li class="s"><i>6</i><span>Ingredients for two complete fallback meals</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===== 4 CONVENIENCE ===== -->
+<section class="card" data-ch="4 · Convenience" data-t="05:30" data-title="Chapter title" data-cue="Chapter title, about two seconds.">
+  <div class="brand">Masala Body</div>
+  <div class="center"><div class="k">Chapter 4</div><h2>How to cook less often</h2></div>
+</section>
+
+<section class="card" data-ch="4 · Convenience" data-t="05:35" data-title="Equipment" data-cue="A microwave, a pan, a knife and some containers may be enough. You can add a rice cooker or pressure cooker if you'll use it, but you don't need an air fryer.">
+  <div class="brand">Masala Body</div>
+  <div class="stamp">Check what the flat provides first</div>
+  <div class="mid">
+    <div class="who s" style="margin-top:0">Enough</div>
+    <div class="chips s"><span>Microwave</span><span>One pan</span><span>A knife</span><span>Containers</span></div>
+    <div class="who s">If you’ll use it</div>
+    <div class="chips dash s"><span>Rice cooker</span><span>Pressure cooker</span></div>
+    <div class="who s">Not needed</div>
+    <div class="chips no s"><span>Air fryer</span></div>
+  </div>
+</section>
+
+<section class="card" data-ch="4 · Convenience" data-t="05:55" data-title="Batch to meals" data-cue="When you're already cooking, make some extra dal, rice, chicken or tofu, or an onion-tomato base… dal with rice one day, chicken into a wrap another day, tomato base into a chickpea curry.">
+  <div class="brand">Masala Body</div>
+  <div class="stamp">Cook once, eat three times</div>
+  <div class="mid">
+    <div class="cols c2" style="grid-template-columns:1fr 1.3fr;margin-top:0">
+      <div>
+        <div class="k">Make extra</div>
+        <div class="chips s" style="flex-direction:column;align-items:flex-start;margin-top:30px"><span>Dal</span><span>Rice</span><span>Chicken or tofu</span><span>Onion-tomato base</span></div>
+      </div>
+      <div>
+        <div class="k">Becomes</div>
+        <ol class="list" style="margin-top:30px">
+          <li class="s"><i>1</i><span>Dal, rice and frozen vegetables</span></li>
+          <li class="s"><i>2</i><span>Chicken or tofu in a wrap</span></li>
+          <li class="s"><i>3</i><span>Chickpea curry from the base, over rice</span></li>
+        </ol>
+      </div>
+    </div>
+    <p class="mono s">Don’t be that uncle. Use your fridge.</p>
+  </div>
+</section>
+
+<section class="card" data-ch="4 · Convenience" data-t="06:20" data-title="Freezing portions" data-cue="Freeze the food in single-meal portions, and label each container with the contents and date. Flatten freezer bags… freeze bread in slices.">
+  <div class="brand">Masala Body</div>
+  <div class="stamp">Freezer</div>
+  <div class="mid">
+    <ol class="list plain">
+      <li class="s"><span>Single-meal portions</span></li>
+      <li class="s"><span>Label every container: <em>contents and date</em></span></li>
+      <li class="s"><span>Flatten freezer bags to save space</span></li>
+      <li class="s"><span>Freeze bread in slices, take out what you need</span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="card lower" data-ch="4 · Convenience" data-t="06:35" data-title="Storage overlay (lower third)" data-cue="Smaller overlay from 'You do need to cool cooked food promptly'. Rules reveal one at a time as each is mentioned. Press G for green screen.">
+  <div class="lt">
+    <div><div class="k">Overlay</div><h3>How to store and reheat your food</h3><p class="mono" style="font-size:22px;margin-top:18px">Fridge 4°C / 40°F · Freezer −18°C / 0°F</p></div>
+    <ol>
+      <li class="s"><i>1</i><span><b>Cool fast</b> in shallow containers. Fridge within 2 hours, 1 hour above 32°C / 90°F.</span></li>
+      <li class="s"><i>2</i><span><b>Fridge</b> only what you will eat in 1–2 days. Freeze the rest promptly.</span></li>
+      <li class="s"><i>3</i><span><b>Rice:</b> cool within 1 hour, eat within 24 hours or freeze. Reheat once.</span></li>
+      <li class="s"><i>4</i><span><b>Thaw</b> in the fridge, or microwave and heat immediately. Reheat to 74°C / 165°F and stir.</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===== 5 HABITS ===== -->
+<section class="card" data-ch="5 · Habits" data-t="07:11" data-title="Chapter title" data-cue="Chapter title, about two seconds.">
+  <div class="brand">Masala Body</div>
+  <div class="center"><div class="k">Chapter 5</div><h2>How to make this a routine</h2></div>
+</section>
+
+<section class="card" data-ch="5 · Habits" data-t="07:50" data-title="The doorway" data-cue="Something similar can happen when you come home, sit down and open the delivery app… You can practise a different routine by putting your bag down and starting to heat a meal you've already chosen. (Same doorway shot twice.)">
+  <div class="brand">Masala Body</div>
+  <div class="stamp">Same cue, different routine</div>
+  <div class="mid">
+    <div class="who s" style="margin-top:0">The routine you have</div>
+    <div class="flow old s"><span class="st cue">Bag down</span><span class="ar">→</span><span class="st">Sofa</span><span class="ar">→</span><span class="st end">Delivery app</span></div>
+    <div class="who s">The routine you practise</div>
+    <div class="flow s"><span class="st cue">Bag down</span><span class="ar">→</span><span class="st">Fridge</span><span class="ar">→</span><span class="st end">Microwave</span></div>
+    <p class="mono s">Repetition in the same situation. Less effort. A result you enjoy straight away.</p>
+  </div>
+</section>
+
+<section class="card" data-ch="5 · Habits" data-t="08:05" data-title="Two more cues" data-cue="You could also get into the habit of packing tomorrow's lunch after dinner, or adding ingredients to your shopping list when you take out your last frozen meal.">
+  <div class="brand">Masala Body</div>
+  <div class="mid">
+    <div class="flow s" style="margin-top:0"><span class="st cue">Finish dinner</span><span class="ar">→</span><span class="st end">Pack tomorrow’s lunch</span></div>
+    <div class="flow s" style="margin-top:60px"><span class="st cue">Last frozen meal out</span><span class="ar">→</span><span class="st end">Add it to the shopping list</span></div>
+  </div>
+</section>
+
+<section class="card" data-ch="5 · Habits" data-t="08:30" data-title="Make it easy" data-cue="Keep the pan clean and ready, and put the food you need to eat at the front of the fridge. You can turn off delivery promotions and carry fruit or roasted chana…">
+  <div class="brand">Masala Body</div>
+  <div class="stamp">Make the good routine the easy one</div>
+  <div class="mid">
+    <ol class="list plain">
+      <li class="s"><span>Pan clean and ready</span></li>
+      <li class="s"><span>Food that needs eating at the front of the fridge</span></li>
+      <li class="s"><span>Delivery promotions off</span></li>
+      <li class="s"><span>Fruit or roasted chana in the bag</span></li>
+      <li class="s"><span>Start with one routine. Breakfast is the easy one.</span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="card" data-ch="5 · Habits" data-t="08:45" data-title="Weekly planning card" data-cue="Production card during the habits examples. Ten minutes of weekly planning.">
+  <div class="brand">Masala Body</div>
+  <div class="stamp">Ten minutes, once a week</div>
+  <div class="mid">
+    <ol class="list">
+      <li class="s"><i>1</i><span>Check fridge, freezer and cupboard before shopping</span></li>
+      <li class="s"><i>2</i><span>Choose two dinners and one breakfast to repeat</span></li>
+      <li class="s"><i>3</i><span>Buy ingredients that overlap</span></li>
+      <li class="s"><i>4</i><span>Keep an “eat first” area in the fridge</span></li>
+      <li class="s"><i>5</i><span>Add to a shared list when things run low</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===== 6 FALLBACK ===== -->
+<section class="card" data-ch="6 · Fallback" data-t="08:59" data-title="Chapter title" data-cue="Chapter title, about two seconds.">
+  <div class="brand">Masala Body</div>
+  <div class="center"><div class="k">Chapter 6</div><h2>What to eat when you are exhausted</h2></div>
+</section>
+
+<section class="card" data-ch="6 · Fallback" data-t="09:02" data-title="Two fallback meals" data-cue="Plain Greek yoghurt with oats and a banana takes very little work. So does wholegrain bread with hummus and some ready-to-eat tofu.">
+  <div class="brand">Masala Body</div>
+  <div class="stamp">No cooking facilities needed</div>
+  <div class="mid">
+    <div class="cols c2">
+      <div class="box s"><div class="k">Meal one</div><div class="t">Greek yoghurt, oats, banana</div><ul><li>Sweet: jaggery, cinnamon</li><li>Savoury: salt, chilli, roasted peanuts</li></ul></div>
+      <div class="box s"><div class="k">Meal two</div><div class="t">Wholegrain bread, hummus, ready-to-eat tofu</div><ul><li>Pickle oil or green chutney in the hummus</li><li>Cucumber and onion with chaat masala</li></ul></div>
+    </div>
+    <p class="mono s">Follow the packet’s storage instructions. If money is tight, ask what food support your university offers.</p>
+  </div>
+</section>
+
+<section class="card" data-ch="6 · Fallback" data-t="09:15" data-title="One meal versus regular" data-cue="You can still go out and have pizza with your friends. What you eat regularly matters much more than any one meal.">
+  <div class="brand">Masala Body</div>
+  <div class="center"><h2 class="s">What you eat <em>regularly</em> matters more than any one meal.</h2></div>
+</section>
+
+<section class="card" data-ch="6 · Fallback" data-t="09:20" data-title="Before you leave India" data-cue="Before you leave India, ask whoever currently feeds you to teach you a handful of meals you like, including how to clean up and store the leftovers.">
+  <div class="brand">Masala Body</div>
+  <div class="center">
+    <div class="k s">Before you leave India</div>
+    <h2 class="s">Learn a handful of meals from <em>whoever feeds you</em>.</h2>
+    <p class="mono s" style="text-align:center">Shopping, cooking, cleaning up, storing the leftovers. The whole job.</p>
+  </div>
+</section>
+
+<section class="card dark" data-ch="6 · Fallback" data-t="09:30" data-title="Four things every expert agrees on" data-cue="There are only 4 things that every expert agrees on when it comes to being healthy… (reveal one at a time)">
+  <div class="brand">Masala Body</div>
+  <div class="mid">
+    <div class="k">Every expert agrees on</div>
+    <ol class="four">
+      <li class="s">Enough sleep</li>
+      <li class="s">Enough exercise</li>
+      <li class="s">Not much stress</li>
+      <li class="s"><span>Balanced nutrition<small>Not too many calories. Enough protein and fibre.</small></span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="card dark" data-ch="Close" data-t="09:45" data-title="End card" data-cue="And learning to cook, and figuring out a stress-free way to do it regularly, is what will make number 4 possible for the rest of your life.">
+  <div class="brand">Masala Body</div>
+  <div class="center">
+    <h2 class="s">Learning to cook is what makes <em>number four</em> possible for the rest of your life.</h2>
+    <p class="mono s" style="text-align:center;margin-top:60px">Masala Body · Masala Lab</p>
+  </div>
+</section>
+
+</div></div>
+
+<div id="idx"><h4>All cards</h4><p>Click a card to jump to it. Press I or Esc to close.</p><div class="g" id="idxg"></div></div>
+
+<div id="hud">
+  <span><b id="hn">1</b>/<span id="ht">0</span></span>
+  <span id="hch"></span>
+  <span class="cue" id="hcue"></span>
+  <button type="button" data-k="ArrowLeft">←</button>
+  <button type="button" data-k="ArrowRight">→</button>
+  <button type="button" data-k="r">R replay</button>
+  <button type="button" data-k="g">G green</button>
+  <button type="button" data-k="i">I index</button>
+  <button type="button" data-k="h">H hide bar</button>
+  <button type="button" data-k="f">F fullscreen</button>
+</div>
+
+<script>
+(function(){
+  var cards=[].slice.call(document.querySelectorAll('.card')),cur=0,timers=[];
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  document.getElementById('ht').textContent=cards.length;
+
+  function fit(){
+    var w=document.getElementById('wrap'),r=w.getBoundingClientRect();
+    var s=Math.min(r.width/1920,r.height/1080);
+    document.getElementById('stage').style.transform='scale('+s+')';
+  }
+  window.addEventListener('resize',fit);fit();
+
+  function clearTimers(){timers.forEach(clearTimeout);timers=[];}
+  function play(card){
+    clearTimers();
+    var steps=[].slice.call(card.querySelectorAll('.s'));
+    steps.forEach(function(s){s.classList.remove('on');});
+    card.querySelectorAll('.fg').forEach(function(f){f.classList.remove('on');});
+    var fins=card.querySelectorAll('.fin');
+    steps.forEach(function(s,i){
+      var go=function(){
+        s.classList.add('on');
+        if(s.classList.contains('fin')){var f=card.querySelector('#vf'+s.dataset.f);if(f)f.classList.add('on');}
+      };
+      if(reduce)go();else timers.push(setTimeout(go,350+i*(fins.length?650:420)));
+    });
+  }
+  function show(i){
+    cur=(i+cards.length)%cards.length;
+    cards.forEach(function(c,j){c.classList.toggle('on',j===cur);});
+    var c=cards[cur];
+    document.getElementById('hn').textContent=cur+1;
+    document.getElementById('hch').textContent=c.dataset.ch+' · '+c.dataset.t+' · '+c.dataset.title;
+    document.getElementById('hcue').textContent='Cue: '+c.dataset.cue;
+    document.getElementById('hcue').title=c.dataset.cue;
+    try{if(location.protocol!=='data:'&&location.hash!=='#'+(cur+1))history.replaceState(null,'','#'+(cur+1));}catch(e){}
+    play(c);
+  }
+  function key(k){
+    if(k==='ArrowRight'||k===' '||k==='PageDown')show(cur+1);
+    else if(k==='ArrowLeft'||k==='PageUp')show(cur-1);
+    else if(k==='r'||k==='R')play(cards[cur]);
+    else if(k==='g'||k==='G')document.body.classList.toggle('green');
+    else if(k==='h'||k==='H'){document.body.classList.toggle('nohud');fit();}
+    else if(k==='i'||k==='I')document.getElementById('idx').classList.toggle('on');
+    else if(k==='Escape')document.getElementById('idx').classList.remove('on');
+    else if(k==='f'||k==='F'){var w=document.getElementById('wrap');if(document.fullscreenElement)document.exitFullscreen();else if(w.requestFullscreen)w.requestFullscreen();}
+    else if(k==='Home')show(0);
+    else if(k==='End')show(cards.length-1);
+  }
+  document.addEventListener('keydown',function(e){if(e.metaKey||e.ctrlKey||e.altKey)return;key(e.key);if([' ','ArrowLeft','ArrowRight','PageUp','PageDown'].indexOf(e.key)>-1)e.preventDefault();});
+  document.querySelectorAll('#hud button').forEach(function(b){b.addEventListener('click',function(){key(b.dataset.k);});});
+  document.addEventListener('fullscreenchange',function(){document.body.classList.toggle('nohud',!!document.fullscreenElement);fit();});
+
+  var g=document.getElementById('idxg');
+  cards.forEach(function(c,i){
+    var b=document.createElement('button');b.type='button';
+    b.innerHTML='<b>'+(i+1)+'</b> '+c.dataset.title+'<small>'+c.dataset.ch+' · '+c.dataset.t+'</small>';
+    b.addEventListener('click',function(){document.getElementById('idx').classList.remove('on');show(i);});
+    g.appendChild(b);
+  });
+
+  var h=parseInt((location.hash||'').slice(1),10);
+  show(isNaN(h)?0:h-1);
+})();
+</script>
+</body>
+</html>
