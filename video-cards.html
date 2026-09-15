@@ -132,6 +132,13 @@
   .lt li i{font-family:var(--display);font-style:normal;font-size:44px;color:var(--chilli)}
   .lt li b{font-weight:600}
 
+  /* bowl generator */
+  .slots{display:grid;grid-template-columns:repeat(5,1fr);gap:52px;margin-top:54px}
+  .slot{position:relative;border:5px solid var(--ink);padding:28px 26px;min-height:300px;display:flex;flex-direction:column;gap:18px}
+  .slot + .slot::before{content:"+";position:absolute;left:-26px;top:50%;transform:translate(-50%,-50%);font-family:var(--display);font-size:64px;color:var(--chilli);line-height:1}
+  .slot .v{font-family:var(--display);font-size:42px;line-height:1.05;letter-spacing:-.015em;text-wrap:balance}
+  .slot.rolling .v{color:var(--smoke)}
+
   /* dark four */
   .four{list-style:none;counter-reset:n;margin-top:60px;display:grid;gap:10px}
   .four li{counter-increment:n;display:grid;grid-template-columns:120px 1fr;gap:30px;align-items:baseline;font-size:60px;line-height:1.2;padding:26px 0;border-top:3px solid rgba(243,233,210,.22)}
@@ -555,6 +562,23 @@
   </div>
 </section>
 
+<section class="card gen" data-ch="6 · Fallback" data-t="09:05" data-title="Bowl generator" data-cue="Production card. Rolls a new no-cook bowl every 7 seconds while on screen. Press R to roll one now. Record as many as you want.">
+  <div class="brand">Masala Body</div>
+  <div class="stamp">No cooking · microwave at most</div>
+  <div class="mid">
+    <div class="k">Bowl generator <b>·</b> base + protein + produce + crunch + sauce</div>
+    <h2 id="bname">Dahi poha bowl</h2>
+    <div class="slots">
+      <div class="slot"><div class="k">Base</div><div class="v" id="b0"></div></div>
+      <div class="slot"><div class="k">Protein</div><div class="v" id="b1"></div></div>
+      <div class="slot"><div class="k">Produce</div><div class="v" id="b2"></div></div>
+      <div class="slot"><div class="k">Crunch</div><div class="v" id="b3"></div></div>
+      <div class="slot"><div class="k">Sauce</div><div class="v" id="b4"></div></div>
+    </div>
+    <p class="mono" id="bnote"></p>
+  </div>
+</section>
+
 <section class="card" data-ch="6 · Fallback" data-t="09:15" data-title="One meal versus regular" data-cue="You can still go out and have pizza with your friends. What you eat regularly matters much more than any one meal.">
   <div class="brand">Masala Body</div>
   <div class="center"><h2 class="s">What you eat <em>regularly</em> matters more than any one meal.</h2></div>
@@ -620,6 +644,45 @@
   }
   window.addEventListener('resize',fit);fit();
 
+
+  /* bowl generator */
+  var BOWLS=[
+    {n:'Sweet curd bowl',note:'The yoghurt is the protein. Skip granola that is mostly sugar.',
+     s:[['Oats, soaked overnight','Poha, soaked','Granola','Muesli'],['Greek yoghurt','Skyr','Thick curd'],['Banana','Mango','Pomegranate','Apple','Frozen berries, thawed'],['Roasted peanuts','Chopped almonds','Pumpkin seeds','Chia or flax'],['Jaggery and cardamom','Honey and cinnamon','Peanut butter','Saffron and a little sugar']]},
+    {n:'Dahi poha bowl',note:'Soak the poha in the curd for ten minutes. Bihar calls it dahi chura.',
+     s:[['Poha, soaked','Murmura','Bread, torn'],['Thick curd','Greek yoghurt','Packet sprouted moong'],['Onion and tomato','Cucumber','Grated carrot','Pomegranate'],['Roasted peanuts','Sev','Roasted chana'],['Chaat masala and lime','Green chilli and salt','Pickle','Green chutney']]},
+    {n:'Chana chaat bowl',note:'Rinse the can. Half a can is about 7 g protein and 6 g fibre.',
+     s:[['Canned chickpeas, rinsed','Packet sprouted moong','Canned rajma, rinsed'],['A spoon of curd','Paneer cubes','Roasted chana'],['Onion and tomato','Cucumber','Pomegranate','Grated carrot'],['Sev','Papdi, crushed','Roasted peanuts'],['Green and tamarind chutney','Chaat masala and lime','Green chilli and coriander','Pickle oil']]},
+    {n:'Hummus bowl',note:'Hummus is chickpeas. Pickle oil or green chutney stirred in works.',
+     s:[['Pita, torn','Couscous, soaked in hot water','Wholegrain bread'],['Hummus','Feta','Canned chickpeas','Ready-to-eat tofu'],['Cucumber and tomato','Olives and peppers','Rocket or lettuce','Grated carrot'],['Toasted seeds','Walnuts','Pita chips'],['Olive oil and lemon','Za\u2019atar','Tahini and lemon','Yoghurt and garlic']]},
+    {n:'Black bean bowl',note:'Rinse the beans. Greek yoghurt stands in for sour cream.',
+     s:[['Canned black beans, rinsed','Canned corn','Tortilla, torn','Microwave rice'],['More black beans','Feta or cheddar','Canned tuna','Greek yoghurt'],['Tomato and onion','Avocado','Lettuce','Capsicum'],['Tortilla chips','Pumpkin seeds','Pickled jalape\u00f1o'],['Chipotle sauce','Salsa','Lime and coriander','Hot sauce']]},
+    {n:'Tofu rice bowl',note:'Ready-to-eat tofu needs no cooking. Edamame thaws in warm water.',
+     s:[['Microwave rice','Cold rice','Cucumber ribbons'],['Ready-to-eat tofu','Edamame, thawed','Canned tuna'],['Cucumber','Carrot, grated','Avocado','Spring onion'],['Sesame seeds','Crushed nori','Peanuts'],['Soy and sesame oil','Rice vinegar and sugar','Sriracha mayo','Miso and lime']]},
+    {n:'Kimchi rice bowl',note:'Kimchi is a vegetable and a sauce at once.',
+     s:[['Microwave rice','Cold rice','Instant noodles, drained'],['Ready-to-eat tofu','Canned tuna','Edamame, thawed'],['Kimchi','Cucumber','Spring onion','Grated carrot'],['Sesame seeds','Seaweed snacks','Peanuts'],['Gochujang and sesame oil','Soy and sugar','Sriracha','Kimchi juice']]},
+    {n:'Tinned fish bowl',note:'Usually the cheapest fish in the shop. Mash with onion, chilli and lime.',
+     s:[['Microwave rice','Bread, torn','Cucumber'],['Tinned sardines','Tinned mackerel','Tinned tuna'],['Onion and tomato','Cucumber','Grated carrot','Coriander'],['Roasted peanuts','Coconut flakes','Sev'],['Lime and green chilli','Pickle','Chilli flakes and coconut oil','Green chutney']]}
+  ];
+  var lastBowl=-1;
+  function pick(a,not){var v;do{v=a[Math.floor(Math.random()*a.length)];}while(a.length>1&&v===not);return v;}
+  function gen(card){
+    var bi;do{bi=Math.floor(Math.random()*BOWLS.length);}while(bi===lastBowl);lastBowl=bi;
+    var b=BOWLS[bi];
+    document.getElementById('bname').textContent=b.n;
+    document.getElementById('bnote').textContent=b.note;
+    for(var i=0;i<5;i++)(function(i){
+      var el=document.getElementById('b'+i),slot=el.parentNode,pool=b.s[i],ticks=6+i*3,n=0,last=null;
+      slot.classList.add('rolling');
+      function tick(){
+        last=pick(pool,last);el.textContent=last;n++;
+        if(n<ticks)timers.push(setTimeout(tick,70+n*12));
+        else slot.classList.remove('rolling');
+      }
+      tick();
+    })(i);
+    if(!reduce)timers.push(setTimeout(function(){if(card.classList.contains('on'))gen(card);},7000));
+  }
   function clearTimers(){timers.forEach(clearTimeout);timers=[];}
   function play(card){
     clearTimers();
@@ -627,6 +690,7 @@
     steps.forEach(function(s){s.classList.remove('on');});
     card.querySelectorAll('.fg').forEach(function(f){f.classList.remove('on');});
     var fins=card.querySelectorAll('.fin');
+    if(card.classList.contains('gen'))gen(card);
     steps.forEach(function(s,i){
       var go=function(){
         s.classList.add('on');
